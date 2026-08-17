@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import AdminAnalyticsDashboard from './AdminAnalyticsDashboard';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="text-4xl font-bold text-blue-500">
-      <h1>Leo Clinic</h1>
-    </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AdminAnalyticsDashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
