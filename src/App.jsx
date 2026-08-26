@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import "./App.css";
+import AddPrescription from "./pages/addPrescription";
+import AdminDrProfile from "./pages/AdminDrProfile";
+import PatientAppoinment from "./pages/PatientAppoinment";
+import PatientDoctorProfile from "./pages/PatientDoctorProfile";
+import AdminAppoinment from "./pages/AdminAppoinment";
+import AdminOverview from "./pages/AdminOverview";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="text-4xl font-bold text-blue-500">
-      <h1>Leo Clinic</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* ================= ADMIN ================= */}
+
+        <Route path="/" element={<Navigate to="/admin/overview" replace />} />
+
+        <Route path="/admin/overview" element={<AdminOverview />} />
+        <Route path="/admin/appointments" element={<AdminAppoinment />} />
+        <Route path="/admin/doctors" element={<AdminDrProfile />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
