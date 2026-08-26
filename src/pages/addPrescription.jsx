@@ -13,18 +13,11 @@ function AddPrescription() {
 
   const dateInputRef = useRef(null);
 
-  // =========================
-  // Number input
-  // =========================
   const handleNumberChange = (e) => {
-    // Allow numbers only
     const value = e.target.value.replace(/\D/g, "");
     setPrescriptionNumber(value);
   };
 
-  // =========================
-  // Save prescription
-  // =========================
   const handleSave = () => {
     const prescriptionData = {
       prescriptionNumber,
@@ -34,28 +27,21 @@ function AddPrescription() {
 
     console.log("Prescription saved:", prescriptionData);
 
-    // Later this can be replaced with an API call
     alert("Prescription saved successfully!");
   };
 
-  // =========================
   // Cancel
-  // =========================
   const handleCancel = () => {
     navigate(-1);
   };
 
   return (
     <div className="flex h-screen overflow-hidden bg-white">
-      {/* ================= SIDEBAR ================= */}
       <PatientDashboardSidebar />
 
-      {/* ================= MAIN AREA ================= */}
       <main className="flex-1 min-w-0 flex flex-col overflow-hidden">
-        {/* ================= NAVBAR ================= */}
         <PatientDashboardNavbar />
 
-        {/* ================= CONTENT ================= */}
         <div
           className="
             flex-1
@@ -68,7 +54,6 @@ function AddPrescription() {
     py-8
           "
         >
-          {/* ================= MAIN CONTAINER ================= */}
           <div
             className="
               w-[960px]
@@ -82,7 +67,6 @@ function AddPrescription() {
               gap-[19px]
             "
           >
-            {/* ================= EXIT BUTTON ================= */}
             <div className="w-full h-[24px] flex justify-end">
               <button
                 type="button"
@@ -120,11 +104,8 @@ function AddPrescription() {
               </button>
             </div>
 
-            {/* ================= FORM CONTENT ================= */}
             <div className="w-full flex flex-col gap-[32px]">
-              {/* ================= TITLE ================= */}
               <div className="flex items-center gap-2">
-                {/* Icon */}
                 <div
                   className="
                     w-[32px]
@@ -153,7 +134,6 @@ function AddPrescription() {
                   </svg>
                 </div>
 
-                {/* Text */}
                 <div className="flex flex-col gap-[2px]">
                   <span
                     className="
@@ -181,11 +161,8 @@ function AddPrescription() {
                 </div>
               </div>
 
-              {/* ================= FORM ================= */}
               <div className="w-full flex flex-col gap-[24px]">
-                {/* ================= FIRST ROW ================= */}
                 <div className="w-full flex gap-4">
-                  {/* Number Prescription */}
                   <div className="flex-1 flex flex-col gap-2">
                     <label
                       htmlFor="prescription-number"
@@ -225,7 +202,6 @@ function AddPrescription() {
                     />
                   </div>
 
-                  {/* Date */}
                   <div className="flex-1 flex flex-col gap-2">
                     <label
                       htmlFor="prescription-date"
@@ -241,7 +217,6 @@ function AddPrescription() {
                     </label>
 
                     <div className="relative w-full h-[48px]">
-                      {/* Visible date button */}
                       <button
                         type="button"
                         onClick={() => {
@@ -272,7 +247,6 @@ function AddPrescription() {
                         "
                       >
                         <div className="flex items-center gap-[10px]">
-                          {/* Calendar icon */}
                           <svg
                             width="18"
                             height="18"
@@ -310,7 +284,6 @@ function AddPrescription() {
                           </span>
                         </div>
 
-                        {/* Arrow */}
                         <svg
                           width="16"
                           height="16"
@@ -327,7 +300,6 @@ function AddPrescription() {
                         </svg>
                       </button>
 
-                      {/* Native date input */}
                       <input
                         ref={dateInputRef}
                         id="prescription-date"
@@ -346,7 +318,6 @@ function AddPrescription() {
                   </div>
                 </div>
 
-                {/* ================= NEW PRESCRIPTION ================= */}
                 <div className="w-full flex flex-col gap-2">
                   <label
                     htmlFor="new-prescription"
@@ -390,9 +361,7 @@ function AddPrescription() {
               </div>
             </div>
 
-            {/* ================= BUTTONS ================= */}
             <div className="w-full flex justify-end items-center gap-3 mt-auto">
-              {/* Cancel */}
               <button
                 type="button"
                 onClick={handleCancel}
@@ -419,7 +388,6 @@ function AddPrescription() {
                 Cancel
               </button>
 
-              {/* Save */}
               <button
                 type="button"
                 onClick={handleSave}

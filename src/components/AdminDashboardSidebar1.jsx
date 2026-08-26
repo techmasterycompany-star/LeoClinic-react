@@ -14,11 +14,6 @@ import HelpCenter from "../assets/SidebarIcons/help-center.png";
 import Logout from "../assets/SidebarIcons/logout.png";
 import Schedule from "../assets/SidebarIcons/schadule.png";
 
-
-/* =========================================================
-   MAIN ADMIN NAVIGATION
-   ========================================================= */
-
 const NAV_ITEMS = [
   {
     label: "Overview",
@@ -38,12 +33,12 @@ const NAV_ITEMS = [
   {
     label: "Patient",
     icon: Patient,
-    path: "/admin/patients",
+    path: "/admin/patient",
   },
   {
-    label: "Payment",
+    label: "Billing",
     icon: Payment,
-    path: "/admin/payments",
+    path: "/admin/billing",
   },
   {
     label: "Messages",
@@ -55,13 +50,11 @@ const NAV_ITEMS = [
     icon: Schedule,
     path: "/admin/schedule",
   },
+  { label: "Analytics", icon: Message, path: "/admin/analytics" },
 ];
-
 
 function AdminDashboardSidebar() {
   const navigate = useNavigate();
-
-  /* ================= LOGOUT ================= */
 
   const handleLogout = () => {
     console.log("Logging out...");
@@ -73,7 +66,6 @@ function AdminDashboardSidebar() {
 
     navigate("/login");
   };
-
 
   return (
     <div
@@ -88,11 +80,6 @@ function AdminDashboardSidebar() {
         bg-[linear-gradient(220.76deg,#000A5A_69.16%,#326BE5_80.36%,#7D8DE8_100%)]
       "
     >
-
-      {/* ================================================= */}
-      {/* HEADER */}
-      {/* ================================================= */}
-
       <div
         className="
           w-full
@@ -120,18 +107,7 @@ function AdminDashboardSidebar() {
         </button>
       </div>
 
-
-      {/* ================================================= */}
-      {/* DIVIDER */}
-      {/* ================================================= */}
-
       <div className="mx-6 shrink-0 border-t border-[#6B707B]" />
-
-
-      {/* ================================================= */}
-      {/* MAIN NAVIGATION */}
-      {/* ================================================= */}
-
       <nav className="w-full px-6 mt-6">
         <ul
           className="
@@ -145,12 +121,8 @@ function AdminDashboardSidebar() {
             tracking-[-0.35px]
           "
         >
-
           {NAV_ITEMS.map((item) => (
-            <li
-              key={item.path}
-              className="w-full h-[42px]"
-            >
+            <li key={item.path} className="w-full h-[42px]">
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
@@ -165,11 +137,7 @@ function AdminDashboardSidebar() {
                     text-white
                     transition-colors
                     duration-200
-                    ${
-                      isActive
-                        ? "bg-[#0018A6]"
-                        : "hover:bg-[#0018A6]/50"
-                    }
+                    ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
                   `
                 }
               >
@@ -183,14 +151,8 @@ function AdminDashboardSidebar() {
               </NavLink>
             </li>
           ))}
-
         </ul>
       </nav>
-
-
-      {/* ================================================= */}
-      {/* BOTTOM SECTION */}
-      {/* ================================================= */}
 
       <div
         className="
@@ -206,9 +168,6 @@ function AdminDashboardSidebar() {
           shrink-0
         "
       >
-
-        {/* ================= SETTINGS ================= */}
-
         <NavLink
           to="/admin/settings"
           className={({ isActive }) =>
@@ -228,25 +187,14 @@ function AdminDashboardSidebar() {
               text-white
               transition-colors
               duration-200
-              ${
-                isActive
-                  ? "bg-[#0018A6]"
-                  : "hover:bg-[#0018A6]/50"
-              }
+              ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
             `
           }
         >
-          <img
-            src={Settings}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={Settings} alt="" className="w-[18px] h-[18px]" />
 
           <span>Settings</span>
         </NavLink>
-
-
-        {/* ================= HELP CENTER ================= */}
 
         <NavLink
           to="/admin/help-center"
@@ -267,25 +215,14 @@ function AdminDashboardSidebar() {
               text-white
               transition-colors
               duration-200
-              ${
-                isActive
-                  ? "bg-[#0018A6]"
-                  : "hover:bg-[#0018A6]/50"
-              }
+              ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
             `
           }
         >
-          <img
-            src={HelpCenter}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={HelpCenter} alt="" className="w-[18px] h-[18px]" />
 
           <span>Help Center</span>
         </NavLink>
-
-
-        {/* ================= LOG OUT ================= */}
 
         <button
           type="button"
@@ -309,15 +246,10 @@ function AdminDashboardSidebar() {
             duration-200
           "
         >
-          <img
-            src={Logout}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={Logout} alt="" className="w-[18px] h-[18px]" />
 
           <span>Log out</span>
         </button>
-
       </div>
     </div>
   );

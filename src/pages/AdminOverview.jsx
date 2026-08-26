@@ -9,19 +9,15 @@ import RevenueIcon from "../assets/overviewpage/revenue.png";
 function AdminOverview() {
   return (
     <div className="flex h-screen overflow-hidden bg-white">
-      {/* ================= SIDEBAR ================= */}
       <div className="shrink-0 h-screen">
         <Sidebar />
       </div>
 
-      {/* ================= MAIN AREA ================= */}
       <main className="flex-1 min-w-0 min-h-0 flex flex-col overflow-hidden">
-        {/* Fixed Navbar */}
         <div className="shrink-0">
           <Navbar />
         </div>
 
-        {/* ================= SCROLLABLE CONTENT ================= */}
         <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
           <div
             className="
@@ -35,11 +31,6 @@ function AdminOverview() {
     pb-8
             "
           >
-            {/* ================================================= */}
-            {/* ROW 1 — STATISTICS */}
-            {/* Figma: 1128 x 190 */}
-            {/* ================================================= */}
-
             <section
               className="
     w-full
@@ -50,7 +41,6 @@ function AdminOverview() {
     justify-between
   "
             >
-              {/* ================= TOTAL DOCTORS ================= */}
               <div
                 className="
       w-[272px]
@@ -65,9 +55,7 @@ function AdminOverview() {
       gap-8
     "
               >
-                {/* Top */}
                 <div className="w-full h-[42px] flex items-center justify-between">
-                  {/* Icon */}
                   <div
                     className="
           w-[42px]
@@ -87,7 +75,6 @@ function AdminOverview() {
                     />
                   </div>
 
-                  {/* Trend */}
                   <div
                     className="
           w-[71px]
@@ -108,7 +95,6 @@ function AdminOverview() {
                   </div>
                 </div>
 
-                {/* Bottom */}
                 <div
                   className="
         w-[97px]
@@ -149,7 +135,6 @@ function AdminOverview() {
                 </div>
               </div>
 
-              {/* ================= TOTAL PATIENTS ================= */}
               <div
                 className="
       w-[272px]
@@ -164,9 +149,7 @@ function AdminOverview() {
       gap-8
     "
               >
-                {/* Top */}
                 <div className="w-full h-[42px] flex items-center justify-between">
-                  {/* Icon */}
                   <div
                     className="
           w-[42px]
@@ -186,7 +169,6 @@ function AdminOverview() {
                     />
                   </div>
 
-                  {/* Trend */}
                   <div
                     className="
           w-[71px]
@@ -207,7 +189,6 @@ function AdminOverview() {
                   </div>
                 </div>
 
-                {/* Bottom */}
                 <div
                   className="
         w-[97px]
@@ -248,7 +229,6 @@ function AdminOverview() {
                 </div>
               </div>
 
-              {/* ================= TODAY'S APPOINTMENTS ================= */}
               <div
                 className="
       w-[272px]
@@ -263,9 +243,7 @@ function AdminOverview() {
       gap-8
     "
               >
-                {/* Top */}
                 <div className="w-full h-[42px] flex items-center justify-between">
-                  {/* Icon */}
                   <div
                     className="
           w-[42px]
@@ -285,7 +263,6 @@ function AdminOverview() {
                     />
                   </div>
 
-                  {/* Trend */}
                   <div
                     className="
           w-[71px]
@@ -306,7 +283,6 @@ function AdminOverview() {
                   </div>
                 </div>
 
-                {/* Bottom */}
                 <div
                   className="
         w-[97px]
@@ -347,7 +323,6 @@ function AdminOverview() {
                 </div>
               </div>
 
-              {/* ================= REVENUE TODAY ================= */}
               <div
                 className="
       w-[272px]
@@ -362,9 +337,7 @@ function AdminOverview() {
       gap-8
     "
               >
-                {/* Top */}
                 <div className="w-full h-[42px] flex items-center justify-between">
-                  {/* Icon */}
                   <div
                     className="
           w-[42px]
@@ -384,7 +357,6 @@ function AdminOverview() {
                     />
                   </div>
 
-                  {/* Trend */}
                   <div
                     className="
           w-[71px]
@@ -405,7 +377,6 @@ function AdminOverview() {
                   </div>
                 </div>
 
-                {/* Bottom */}
                 <div
                   className="
         w-[97px]
@@ -446,10 +417,6 @@ function AdminOverview() {
                 </div>
               </div>
             </section>
-            {/* ================================================= */}
-            {/* ROW 2 */}
-            {/* Figma: 1128 x 482 */}
-            {/* ================================================= */}
 
             <section
               className="
@@ -461,11 +428,6 @@ function AdminOverview() {
     gap-6
   "
             >
-              {/* ================================================= */}
-              {/* LEFT PART — APPOINTMENTS */}
-              {/* Figma: 595 x 482 */}
-              {/* ================================================= */}
-
               <div
                 className="
       w-[595px]
@@ -480,9 +442,7 @@ function AdminOverview() {
       overflow-hidden
     "
               >
-                {/* ================= TOP ================= */}
                 <div className="w-[563px] h-[110px] flex flex-col gap-5">
-                  {/* Header */}
                   <div className="h-[50px] flex flex-col">
                     <h2
                       className="
@@ -507,7 +467,6 @@ function AdminOverview() {
                     </p>
                   </div>
 
-                  {/* Tabs */}
                   <div className="h-[40px] flex items-center gap-5">
                     <button
                       type="button"
@@ -543,12 +502,9 @@ function AdminOverview() {
                   </div>
                 </div>
 
-                {/* ================= BOTTOM ================= */}
                 <div className="w-[563px] h-[268px] flex flex-col gap-5">
-                  {/* ================= TABLE ================= */}
                   <div className="w-full overflow-hidden">
                     <table className="w-full table-fixed border-collapse">
-                      {/* ---------- HEADER ---------- */}
                       <thead>
                         <tr className="bg-[#F7F8FB]">
                           <th
@@ -637,7 +593,6 @@ function AdminOverview() {
                         </tr>
                       </thead>
 
-                      {/* ---------- BODY ---------- */}
                       <tbody>
                         {[
                           [
@@ -657,7 +612,6 @@ function AdminOverview() {
                           ],
                         ].map((row, index) => (
                           <tr key={index} className="border-b border-[#F0F1F5]">
-                            {/* Patient */}
                             <td
                               className="
                     px-2
@@ -670,7 +624,6 @@ function AdminOverview() {
                               {row[0]}
                             </td>
 
-                            {/* Time */}
                             <td
                               className="
                     px-2
@@ -683,7 +636,6 @@ function AdminOverview() {
                               {row[1]}
                             </td>
 
-                            {/* Doctor */}
                             <td className="px-2 py-2">
                               <div className="flex items-center gap-2">
                                 <div
@@ -726,7 +678,6 @@ function AdminOverview() {
                               </div>
                             </td>
 
-                            {/* Department */}
                             <td
                               className="
                     px-2
@@ -739,7 +690,6 @@ function AdminOverview() {
                               {row[3]}
                             </td>
 
-                            {/* Status */}
                             <td className="px-2 py-3">
                               <span
                                 className={`
@@ -763,10 +713,8 @@ function AdminOverview() {
                               </span>
                             </td>
 
-                            {/* Actions */}
                             <td className="px-2 py-2">
                               <div className="flex items-center gap-2">
-                                {/* Edit */}
                                 <button
                                   type="button"
                                   className="
@@ -784,7 +732,6 @@ function AdminOverview() {
                                   ✎
                                 </button>
 
-                                {/* Delete */}
                                 <button
                                   type="button"
                                   className="
@@ -809,7 +756,6 @@ function AdminOverview() {
                     </table>
                   </div>
 
-                  {/* ================= PAGINATION ================= */}
                   <div
                     className="
           flex
@@ -852,11 +798,6 @@ function AdminOverview() {
                 </div>
               </div>
 
-              {/* ================================================= */}
-              {/* RIGHT PART — PATIENT VISITS */}
-              {/* Figma: 510 x 482 */}
-              {/* ================================================= */}
-
               <div
                 className="
       w-full
@@ -870,7 +811,6 @@ function AdminOverview() {
       overflow-hidden
     "
               >
-                {/* Header */}
                 <div className="flex items-center justify-between">
                   <h2
                     className="
@@ -898,14 +838,12 @@ function AdminOverview() {
                   </button>
                 </div>
 
-                {/* Legend */}
                 <div className="mt-5 flex gap-4 text-[9px]">
                   <span className="text-[#0072C3]">● New Patients</span>
 
                   <span className="text-[#1FA959]">● Returning Patients</span>
                 </div>
 
-                {/* Chart */}
                 <div className="relative mt-5 h-[300px]">
                   <div className="flex items-center gap-3">
                     <span className="text-[10px] text-[#4A4F5A]">
@@ -922,14 +860,12 @@ function AdminOverview() {
                     className="w-full h-[240px] mt-3"
                     preserveAspectRatio="none"
                   >
-                    {/* Grid */}
                     <line x1="40" y1="30" x2="480" y2="30" stroke="#F0F1F5" />
 
                     <line x1="40" y1="90" x2="480" y2="90" stroke="#F0F1F5" />
 
                     <line x1="40" y1="150" x2="480" y2="150" stroke="#F0F1F5" />
 
-                    {/* Green Line */}
                     <path
                       d="
             M40 90
@@ -943,7 +879,6 @@ function AdminOverview() {
                       strokeWidth="3"
                     />
 
-                    {/* Blue Line */}
                     <path
                       d="
             M40 70
@@ -957,7 +892,6 @@ function AdminOverview() {
                       strokeWidth="3"
                     />
 
-                    {/* Highlight */}
                     <line
                       x1="290"
                       y1="25"
@@ -970,7 +904,6 @@ function AdminOverview() {
                     <circle cx="290" cy="40" r="6" fill="#F45B69" />
                   </svg>
 
-                  {/* Months */}
                   <div
                     className="
           absolute
@@ -993,10 +926,6 @@ function AdminOverview() {
                 </div>
               </div>
             </section>
-            {/* ================================================= */}
-            {/* ROW 3 */}
-            {/* Figma: 1128 x 333 */}
-            {/* ================================================= */}
 
             <section
               className="
@@ -1009,7 +938,6 @@ function AdminOverview() {
     py-4
   "
             >
-              {/* ================= APPOINTMENTS BY DEPARTMENT ================= */}
               <div
                 className="
       w-[595px]
@@ -1021,7 +949,6 @@ function AdminOverview() {
       p-4
     "
               >
-                {/* Header */}
                 <div className="flex items-start justify-between">
                   <div>
                     <h2
@@ -1067,7 +994,6 @@ function AdminOverview() {
                   </button>
                 </div>
 
-                {/* Bars */}
                 <div className="mt-7 flex flex-col gap-4">
                   {[
                     ["Cardiology", 48, "w-[90%]", "bg-[#009E60]"],
@@ -1117,7 +1043,6 @@ function AdminOverview() {
                   ))}
                 </div>
 
-                {/* X Axis */}
                 <div
                   className="
         ml-[80px]
@@ -1138,7 +1063,6 @@ function AdminOverview() {
                 </div>
               </div>
 
-              {/* ================= DOCTOR AVAILABILITY ================= */}
               <div
                 className="
       w-[509px]
@@ -1162,7 +1086,6 @@ function AdminOverview() {
                   Doctor Availability
                 </h2>
 
-                {/* Table Header */}
                 <div
                   className="
         mt-4
@@ -1181,7 +1104,6 @@ function AdminOverview() {
                   <span>Status</span>
                 </div>
 
-                {/* Doctors */}
                 {[
                   ["Dr.Terry", "Cardiology", "Available"],
                   ["Dr.Jenny", "ENT", "Busy"],
@@ -1239,10 +1161,6 @@ function AdminOverview() {
                 ))}
               </div>
             </section>
-            {/* ================================================= */}
-            {/* ROW 4 — RECENT ACTIVITIES */}
-            {/* Figma: 1128 x 343 */}
-            {/* ================================================= */}
 
             <section
               className="
@@ -1255,7 +1173,6 @@ function AdminOverview() {
     shadow-[0px_0px_20.6px_0px_#7070F32B]
   "
             >
-              {/* ================= HEADER ================= */}
               <div className="w-full h-[24px] flex items-center justify-between">
                 <h2
                   className="
@@ -1286,7 +1203,6 @@ function AdminOverview() {
                 </button>
               </div>
 
-              {/* ================= ACTIVITIES ================= */}
               <div className="mt-4 flex flex-col gap-3">
                 {[
                   "New patient Sarah Ahmed registered",
@@ -1307,7 +1223,6 @@ function AdminOverview() {
           gap-6
         "
                   >
-                    {/* Activity Icon */}
                     <div
                       className="
             w-[28px]
@@ -1324,7 +1239,6 @@ function AdminOverview() {
                       <span className="text-[14px]">▧</span>
                     </div>
 
-                    {/* Activity Text */}
                     <div className="flex flex-col justify-center">
                       <span
                         className="
@@ -1360,5 +1274,4 @@ function AdminOverview() {
     </div>
   );
 }
-
 export default AdminOverview;
