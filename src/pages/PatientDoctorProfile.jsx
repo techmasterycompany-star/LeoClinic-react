@@ -3,7 +3,6 @@ import Sidebar from "../components/AdminDashboardSidebar1";
 import Navbar from "../components/AdminDrProfileNavbar";
 import DrProfileCard from "../assets/drProfile.png";
 
-// Icons — placeholders as <img> until final icon set is provided
 import VisitInfoIcon from "../assets/DetailsIcon.png";
 import ServicesIcon from "../assets/DetailsIcon.png";
 import ReviewsIcon from "../assets/DetailsIcon.png";
@@ -16,8 +15,6 @@ import VisitTypeIcon from "../assets/visit type.png";
 import BookmarkIcon from "../assets/DetailsIcon.png";
 import EditIcon from "../assets/DetailsIcon.png";
 import DoctorThumb from "../assets/drProfile.png";
-
-/* ---------- Mock data (replace with real API data) ---------- */
 
 const SERVICES = [
   "Heart Check-up",
@@ -106,8 +103,6 @@ const RELATED_DOCTORS = [
     price: "$80/h",
   },
 ];
-
-/* ---------- Reusable subcomponents ---------- */
 
 function VisitInfoItem({ icon, label, value, isTag }) {
   return (
@@ -270,8 +265,6 @@ function DoctorCard({ doctor }) {
   );
 }
 
-/* ---------- Page ---------- */
-
 function DoctorProfile() {
   const [isSaved, setIsSaved] = useState(false);
   const [reviewsExpanded, setReviewsExpanded] = useState(false);
@@ -279,12 +272,10 @@ function DoctorProfile() {
   const visibleReviews = reviewsExpanded ? REVIEWS : REVIEWS.slice(0, 3);
 
   const handleBookAppointment = () => {
-    // Hook into your booking flow / API
     console.log("Book appointment clicked");
   };
 
   const handleWriteFeedback = () => {
-    // Hook into your review-submission flow
     console.log("Write feedback clicked");
   };
 
@@ -295,7 +286,6 @@ function DoctorProfile() {
       <main className="flex-1 min-w-0 flex flex-col overflow-hidden bg-white">
         <Navbar />
 
-        {/* Breadcrumb */}
         <div className="shrink-0 px-6 mt-8">
           <div className="w-[124px] h-[24px] flex items-center gap-[5px] font-['IBM Plex Sans'] text-[12px] leading-[24px] text-[#4D5260]">
             <span className="text-[#A7ABB5]">&lt;</span>
@@ -303,12 +293,9 @@ function DoctorProfile() {
           </div>
         </div>
 
-        {/* Scrollable content */}
         <div className="flex-1 min-h-0 overflow-y-auto px-6 pb-6">
           <div className="w-full flex flex-col gap-6 mt-6">
-            {/* ================= CONTAINER 1: Profile + Visit Info ================= */}
             <div className="w-full  h-[344px] shrink-0 flex gap-[20px]">
-              {/* LEFT — Profile card */}
               <div
                 className="
                  flex-[561] h-[344px]
@@ -317,7 +304,6 @@ function DoctorProfile() {
               bg-[#0018A6] relative
                 "
               >
-                {/* Available Today badge */}
                 <span
                   className="
                     absolute top-6 right-6
@@ -332,7 +318,6 @@ function DoctorProfile() {
                   Available Today
                 </span>
 
-                {/* Avatar + name/specialty */}
                 <div className="w-[309px] h-[88px] flex items-center gap-[10px] py-2">
                   <img
                     src={DrProfileCard}
@@ -349,7 +334,6 @@ function DoctorProfile() {
                   </div>
                 </div>
 
-                {/* Rating / patients / experience row */}
                 <div className="w-[369px] h-[16px] flex items-center gap-[16px]">
                   <span className="flex items-center gap-1 font-['IBM Plex Sans'] text-[13px] text-white whitespace-nowrap">
                     <span className="text-[#F5A623]">★</span> 4.8{" "}
@@ -365,10 +349,8 @@ function DoctorProfile() {
                   </span>
                 </div>
 
-                {/* Divider */}
                 <div className="w-full h-0 border-t-[0.5px] border-white/30" />
 
-                {/* Description */}
                 <p className="font-['IBM Plex Sans'] text-[13px] text-[#C6CBF0] leading-[22px]">
                   Dr. Alex has over 12 years of experience in dentistry and
                   graduated from California State University. Dedicated to
@@ -376,9 +358,7 @@ function DoctorProfile() {
                   healthy, confident smiles.
                 </p>
 
-                {/* Actions */}
                 <div className="flex items-center gap-2 mt-auto">
-                  {/* Book Appointment — Secondary / Large */}
                   <button
                     type="button"
                     onClick={handleBookAppointment}
@@ -387,7 +367,6 @@ function DoctorProfile() {
                     Book Appointment
                   </button>
 
-                  {/* Save button */}
                   <button
                     type="button"
                     onClick={() => setIsSaved((s) => !s)}
@@ -405,7 +384,6 @@ function DoctorProfile() {
                 </div>
               </div>
 
-              {/* RIGHT — Visit Information card */}
               <div
                 className="
                 flex-[547] h-[344px]
@@ -414,7 +392,6 @@ function DoctorProfile() {
                 pt-6 pr-4 pb-6 pl-4
                 "
               >
-                {/* Title row */}
                 <div className="w-full h-[32px] shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <img
@@ -428,9 +405,7 @@ function DoctorProfile() {
                   </div>
                 </div>
 
-                {/* Options container — 2 columns */}
                 <div className="w-full h-[212px] shrink-0 flex gap-[8px]">
-                  {/* Column 1 */}
                   <div className="flex-1 h-[200px] shrink-0 flex flex-col gap-[40px]">
                     <VisitInfoItem
                       icon={FeeIcon}
@@ -449,7 +424,6 @@ function DoctorProfile() {
                     />
                   </div>
 
-                  {/* Column 2 */}
                   <div className="flex-1 h-[200px] shrink-0 flex flex-col gap-[40px]">
                     <VisitInfoItem
                       icon={HoursIcon}
@@ -472,7 +446,6 @@ function DoctorProfile() {
               </div>
             </div>
 
-            {/* ================= CONTAINER 2: Services ================= */}
             <div
               className="
     w-full h-[114px] shrink-0
@@ -481,7 +454,6 @@ function DoctorProfile() {
     p-4
   "
             >
-              {/* Service line — icon + title */}
               <div className="w-full h-[32px] shrink-0 flex items-center justify-between">
                 <div className="w-[254px] h-[32px] flex items-center gap-2">
                   <img src={ServicesIcon} alt="" className="w-5 h-5" />
@@ -491,7 +463,6 @@ function DoctorProfile() {
                 </div>
               </div>
 
-              {/* Second row — service pills */}
               <div className="w-full h-[24px] shrink-0 flex items-center gap-[8px]">
                 <ServicePill label="Heart Check-up" />
                 <ServicePill label="Stress Test" />
@@ -501,7 +472,6 @@ function DoctorProfile() {
                 <ServicePill label="Arrhythmia Care" />
               </div>
             </div>
-            {/* ================= CONTAINER 3: Reviews ================= */}
             <div className="w-full rounded-[24px] border border-[#DFE1E6] p-6 flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -520,7 +490,6 @@ function DoctorProfile() {
                 </button>
               </div>
 
-              {/* Rating summary + breakdown */}
               <div className="flex items-center gap-8">
                 <div className="flex flex-col items-center gap-1 shrink-0">
                   <span className="font-['IBM Plex Sans'] text-[32px] font-semibold text-[#0018A6]">
@@ -542,14 +511,11 @@ function DoctorProfile() {
                   ))}
                 </div>
               </div>
-
-              {/* Review list */}
               <div className="flex flex-col">
                 {visibleReviews.map((review) => (
                   <ReviewCard key={review.id} review={review} />
                 ))}
               </div>
-
               {REVIEWS.length > 3 && (
                 <button
                   type="button"
@@ -561,7 +527,6 @@ function DoctorProfile() {
               )}
             </div>
 
-            {/* ================= CONTAINER 4: You May Also Like ================= */}
             <div className="w-full flex flex-col gap-4 pb-4">
               <span className="font-['IBM Plex Sans'] text-[14px] font-medium text-[#4D5260]">
                 You May Also Like
@@ -578,5 +543,4 @@ function DoctorProfile() {
     </div>
   );
 }
-
 export default DoctorProfile;

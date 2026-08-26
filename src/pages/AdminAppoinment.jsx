@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "../components/AdminDashboardSidebar2";
+import Sidebar from "../components/AdminDashboardSidebar1";
 import Navbar from "../components/AdminDrProfileNavbar";
 
 // Icons
@@ -8,8 +8,6 @@ import ActiveTreatmentsIcon from "../assets/checkmark-square-04.png";
 import NewThisMonthIcon from "../assets/refresh.png";
 import SatisfiedPatientsIcon from "../assets/cancel-square.png";
 import profile from "../assets/profilePic.png";
-
-/* ---------- Mock data ---------- */
 
 const STATS = [
   {
@@ -124,8 +122,6 @@ const PATIENTS = [
     appointmentDate: "2026-07-28",
   },
 ];
-
-/* ---------- Reusable subcomponents ---------- */
 
 function StatCard({ icon, label, value, trend, trendColor }) {
   return (
@@ -252,7 +248,6 @@ function PatientRow({ patient }) {
         </div>
       </td>
 
-      {/* Patient Name */}
       <td
         className="
           py-3.5 px-3
@@ -264,7 +259,6 @@ function PatientRow({ patient }) {
         {patient.name}
       </td>
 
-      {/* Time Visit */}
       <td
         className="
           py-3.5 px-3
@@ -276,7 +270,6 @@ function PatientRow({ patient }) {
         {patient.time}
       </td>
 
-      {/* Date */}
       <td
         className="
           py-3.5 px-3
@@ -288,7 +281,6 @@ function PatientRow({ patient }) {
         {patient.date}
       </td>
 
-      {/* Type */}
       <td
         className="
           py-3.5 px-3
@@ -300,7 +292,6 @@ function PatientRow({ patient }) {
         {patient.type}
       </td>
 
-      {/* State */}
       <td className="py-3.5 px-3">
         <span
           className={`
@@ -325,7 +316,6 @@ function PatientRow({ patient }) {
         </span>
       </td>
 
-      {/* Action */}
       <td className="py-3.5 px-3">
         <button
           type="button"
@@ -379,11 +369,7 @@ function PatientRow({ patient }) {
   );
 }
 
-/* ---------- Page ---------- */
-
 function AdminAppointment() {
-  /* ---------- Filters ---------- */
-
   const [activeFilter, setActiveFilter] = useState("All");
 
   const [patients] = useState(PATIENTS);
@@ -393,8 +379,6 @@ function AdminAppointment() {
   const [showDoctorFilter, setShowDoctorFilter] = useState(false);
 
   const [selectedDate, setSelectedDate] = useState("2026-07-28");
-
-  /* ---------- Filtering ---------- */
 
   const filteredPatients = patients.filter((patient) => {
     const statusMatch =
@@ -426,7 +410,6 @@ function AdminAppointment() {
       >
         <Navbar />
 
-        {/* Scrollable content */}
         <div
           className="
             flex-1
@@ -455,8 +438,6 @@ function AdminAppointment() {
               </div>
             </div>
 
-            {/* ================= FILTERS ================= */}
-
             <div
               className="
                 w-full
@@ -465,8 +446,6 @@ function AdminAppointment() {
                 justify-between
               "
             >
-              {/* LEFT — Status Filters */}
-
               <div className="flex items-center gap-3">
                 {FILTERS.map((filter) => (
                   <FilterTab
@@ -478,11 +457,7 @@ function AdminAppointment() {
                 ))}
               </div>
 
-              {/* RIGHT — Doctor + Date */}
-
               <div className="flex items-center gap-3">
-                {/* Filter By Doctor */}
-
                 <div className="relative">
                   <button
                     type="button"
@@ -503,8 +478,6 @@ function AdminAppointment() {
                       text-[#4D5260]
                     "
                   >
-                    {/* Filter icon */}
-
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M4 5H20L14 12V18L10 20V12L4 5Z"
@@ -517,8 +490,6 @@ function AdminAppointment() {
 
                     {selectedDoctor}
 
-                    {/* Arrow */}
-
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M6 9L12 15L18 9"
@@ -529,8 +500,6 @@ function AdminAppointment() {
                       />
                     </svg>
                   </button>
-
-                  {/* Doctor Dropdown */}
 
                   {showDoctorFilter && (
                     <div
@@ -575,8 +544,6 @@ function AdminAppointment() {
                   )}
                 </div>
 
-                {/* Date */}
-
                 <label
                   className="
                     relative
@@ -596,8 +563,6 @@ function AdminAppointment() {
                     text-[#4D5260]
                   "
                 >
-                  {/* Calendar icon */}
-
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <rect
                       x="3"
@@ -628,8 +593,6 @@ function AdminAppointment() {
                       )
                     : "Select Date"}
 
-                  {/* Arrow */}
-
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M6 9L12 15L18 9"
@@ -639,8 +602,6 @@ function AdminAppointment() {
                       strokeLinejoin="round"
                     />
                   </svg>
-
-                  {/* Native date picker */}
 
                   <input
                     type="date"
@@ -659,8 +620,6 @@ function AdminAppointment() {
               </div>
             </div>
 
-            {/* ================= TABLE ================= */}
-
             <div className="w-full bg-white">
               <div className="w-full overflow-hidden">
                 <table
@@ -670,8 +629,6 @@ function AdminAppointment() {
                     table-fixed
                   "
                 >
-                  {/* Table Header */}
-
                   <thead>
                     <tr className="bg-[#F7F8FB]">
                       <th
@@ -781,8 +738,6 @@ function AdminAppointment() {
                     </tr>
                   </thead>
 
-                  {/* Table Body */}
-
                   <tbody>
                     {filteredPatients.length === 0 ? (
                       <tr>
@@ -808,8 +763,6 @@ function AdminAppointment() {
                 </table>
               </div>
 
-              {/* ================= PAGINATION ================= */}
-
               <div
                 className="
                   w-full
@@ -820,8 +773,6 @@ function AdminAppointment() {
                   py-5
                 "
               >
-                {/* Previous */}
-
                 <button
                   type="button"
                   className="
@@ -852,8 +803,6 @@ function AdminAppointment() {
                   Previous
                 </button>
 
-                {/* Page Number */}
-
                 <span
                   className="
                     font-['IBM_Plex_Sans']
@@ -863,8 +812,6 @@ function AdminAppointment() {
                 >
                   1
                 </span>
-
-                {/* Next */}
 
                 <button
                   type="button"

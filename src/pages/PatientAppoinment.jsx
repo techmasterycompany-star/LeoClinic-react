@@ -3,16 +3,12 @@ import Sidebar from "../components/PatientDashboardSidebar.jsx";
 import Navbar from "../components/AdminDrProfileNavbar";
 import profile from "../assets/profilePic.png";
 
-/* ---------- Filters ---------- */
-
 const FILTERS = [
   { label: "All", count: null },
   { label: "Confirmed", count: 2 },
   { label: "Pending", count: 3 },
   { label: "Cancelled", count: 1 },
 ];
-
-/* ---------- Mock Data ---------- */
 
 const APPOINTMENTS = [
   {
@@ -84,8 +80,6 @@ function AdminAppointment() {
 
   const [appointments, setAppointments] = useState(APPOINTMENTS);
 
-  /* ---------- Filtering ---------- */
-
   const filteredAppointments = appointments.filter((appointment) => {
     const statusMatch =
       activeFilter === "All" || appointment.status === activeFilter;
@@ -96,8 +90,6 @@ function AdminAppointment() {
     return statusMatch && doctorMatch;
   });
 
-  /* ---------- Delete ---------- */
-
   const handleDelete = (id) => {
     setAppointments((current) =>
       current.filter((appointment) => appointment.id !== id),
@@ -106,18 +98,10 @@ function AdminAppointment() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* ================= SIDEBAR ================= */}
-
       <Sidebar />
 
-      {/* ================= MAIN ================= */}
-
       <main className="flex-1 min-w-0 flex flex-col overflow-hidden bg-white">
-        {/* ================= NAVBAR ================= */}
-
         <Navbar />
-
-        {/* ================= CONTENT ================= */}
 
         <div className="flex-1 min-h-0 overflow-y-auto px-6 py-6">
           <div
@@ -130,10 +114,6 @@ function AdminAppointment() {
               gap-6
             "
           >
-            {/* ================================================= */}
-            {/* FILTERS + ACTIONS */}
-            {/* ================================================= */}
-
             <div
               className="
                 w-full
@@ -143,8 +123,6 @@ function AdminAppointment() {
                 justify-between
               "
             >
-              {/* ================= LEFT FILTERS ================= */}
-
               <div
                 className="
                   w-[493px]
@@ -193,8 +171,6 @@ function AdminAppointment() {
                 })}
               </div>
 
-              {/* ================= RIGHT SIDE ================= */}
-
               <div
                 className="
                   w-[611px]
@@ -205,8 +181,6 @@ function AdminAppointment() {
                   gap-4
                 "
               >
-                {/* ================= DOCTOR FILTER ================= */}
-
                 <div className="relative">
                   <button
                     type="button"
@@ -234,8 +208,6 @@ function AdminAppointment() {
                     "
                   >
                     <div className="flex items-center gap-2">
-                      {/* Filter Icon */}
-
                       <svg
                         width="16"
                         height="16"
@@ -254,8 +226,6 @@ function AdminAppointment() {
                       <span>{selectedDoctor}</span>
                     </div>
 
-                    {/* Arrow */}
-
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M6 9L12 15L18 9"
@@ -266,8 +236,6 @@ function AdminAppointment() {
                       />
                     </svg>
                   </button>
-
-                  {/* Doctor Dropdown */}
 
                   {showDoctorFilter && (
                     <div
@@ -319,10 +287,6 @@ function AdminAppointment() {
                   )}
                 </div>
 
-                {/* ================= DATE ================= */}
-
-                {/* ================= DATE ================= */}
-
                 <div
                   className="
     relative
@@ -330,8 +294,6 @@ function AdminAppointment() {
     h-[40px]
   "
                 >
-                  {/* Visible Date Button */}
-
                   <button
                     type="button"
                     onClick={() => {
@@ -367,8 +329,6 @@ function AdminAppointment() {
     "
                   >
                     <div className="flex items-center gap-[10px]">
-                      {/* Calendar Icon */}
-
                       <svg
                         width="16"
                         height="16"
@@ -406,8 +366,6 @@ function AdminAppointment() {
                       </span>
                     </div>
 
-                    {/* Arrow */}
-
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M6 9L12 15L18 9"
@@ -418,8 +376,6 @@ function AdminAppointment() {
                       />
                     </svg>
                   </button>
-
-                  {/* Hidden Native Date Picker */}
 
                   <input
                     ref={dateInputRef}
@@ -437,8 +393,6 @@ function AdminAppointment() {
     "
                   />
                 </div>
-
-                {/* ================= ADD APPOINTMENT ================= */}
 
                 <button
                   type="button"
@@ -491,10 +445,6 @@ function AdminAppointment() {
               </div>
             </div>
 
-            {/* ================================================= */}
-            {/* TABLE */}
-            {/* ================================================= */}
-
             <div className="w-full">
               <table
                 className="
@@ -503,8 +453,6 @@ function AdminAppointment() {
                   table-fixed
                 "
               >
-                {/* ================= TABLE HEADER ================= */}
-
                 <thead>
                   <tr
                     className="
@@ -604,8 +552,6 @@ function AdminAppointment() {
                   </tr>
                 </thead>
 
-                {/* ================= TABLE BODY ================= */}
-
                 <tbody>
                   {filteredAppointments.map((appointment) => (
                     <tr
@@ -616,8 +562,6 @@ function AdminAppointment() {
                           border-[#F5F5F7]
                         "
                     >
-                      {/* Doctor */}
-
                       <td className="px-2">
                         <div
                           className="
@@ -677,8 +621,6 @@ function AdminAppointment() {
                         </div>
                       </td>
 
-                      {/* Time */}
-
                       <td
                         className="
                             px-2
@@ -689,8 +631,6 @@ function AdminAppointment() {
                       >
                         {appointment.time}
                       </td>
-
-                      {/* Date */}
 
                       <td
                         className="
@@ -703,8 +643,6 @@ function AdminAppointment() {
                         {appointment.date}
                       </td>
 
-                      {/* Type */}
-
                       <td
                         className="
                             px-2
@@ -715,8 +653,6 @@ function AdminAppointment() {
                       >
                         {appointment.type}
                       </td>
-
-                      {/* State */}
 
                       <td className="px-2">
                         <span
@@ -744,8 +680,6 @@ function AdminAppointment() {
                           {appointment.state}
                         </span>
                       </td>
-
-                      {/* Action */}
 
                       <td className="px-2">
                         <button
@@ -808,10 +742,6 @@ function AdminAppointment() {
               </table>
             </div>
 
-            {/* ================================================= */}
-            {/* PAGINATION */}
-            {/* ================================================= */}
-
             <div
               className="
                 w-full
@@ -822,8 +752,6 @@ function AdminAppointment() {
                 mt-auto
               "
             >
-              {/* Previous */}
-
               <button
                 type="button"
                 className="
@@ -855,8 +783,6 @@ function AdminAppointment() {
                 Previous
               </button>
 
-              {/* Page */}
-
               <span
                 className="
                   font-['IBM_Plex_Sans']
@@ -866,8 +792,6 @@ function AdminAppointment() {
               >
                 1
               </span>
-
-              {/* Next */}
 
               <button
                 type="button"
