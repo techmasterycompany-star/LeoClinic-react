@@ -1,55 +1,33 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
 import Arrow from "../assets/SidebarIcons/arrow.png";
 import Logo from "../assets/SidebarIcons/logo.png";
 import Appointment from "../assets/SidebarIcons/appointment.png";
-import Patient from "../assets/SidebarIcons/patient.png";
+import Doctor from "../assets/SidebarIcons/Doctor.png";
 import Message from "../assets/SidebarIcons/message.png";
 import Overview from "../assets/SidebarIcons/overwiev.png";
+import Payment from "../assets/SidebarIcons/payment.png";
 import Schedule from "../assets/SidebarIcons/schadule.png";
+import Patient from "../assets/SidebarIcons/patient.png";
 import Settings from "../assets/SidebarIcons/setting.png";
 import HelpCenter from "../assets/SidebarIcons/help-center.png";
 import Logout from "../assets/SidebarIcons/logout.png";
-import MyRequest from "../assets/SidebarIcons/myRequest.png";
 
+// Central nav config — add/remove items here, routes/pages can be built out later
 const NAV_ITEMS = [
-  {
-    label: "Overview",
-    icon: Overview,
-    path: "/overview",
-  },
-  {
-    label: "Appointment",
-    icon: Appointment,
-    path: "/appointments",
-  },
-  {
-    label: "Patient List",
-    icon: Patient,
-    path: "/patient",
-  },
-  {
-    label: "My requests",
-    icon: MyRequest,
-    path: "/my-requests",
-  },
-  {
-    label: "Messages",
-    icon: Message,
-    path: "/messages",
-  },
-  {
-    label: "Schedule",
-    icon: Schedule,
-    path: "/schedule",
-  },
+  { label: "Overview", icon: Overview, path: "/overview" },
+  { label: "Appointment", icon: Appointment, path: "/appointments" },
+  { label: "Patient List", icon: Doctor, path: "/doctors" },
+  { label: "Patient", icon: Patient, path: "/patients" },
+  { label: "Payment", icon: Payment, path: "/payments" },
+  { label: "Messages", icon: Message, path: "/messages" },
 ];
 
 function DrDashboardSidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    // Hook into your real auth/logout flow (clear token, call API, etc.)
     console.log("Logging out...");
     navigate("/login");
   };
@@ -66,42 +44,25 @@ function DrDashboardSidebar() {
         bg-[linear-gradient(220.76deg,#000A5A_69.16%,#326BE5_80.36%,#7D8DE8_100%)]
       "
     >
-      <div
-        className="
-          w-full
-          h-[110px]
-          shrink-0
-          px-6
-          flex
-          items-center
-          justify-between
-          rounded-tl-[32px]
-        "
-      >
-        <img
-          src={Logo}
-          alt="LeoClinic"
-          className="w-[88px] h-[30px]"
-        />
-
+      {/* ================= Header ================= */}
+      <div className="w-full h-[110px] shrink-0 px-6 flex items-center justify-between rounded-tl-[32px]">
+        <img src={Logo} alt="LeoClinic" className="w-88px h-30px gap-4px" />
         <button type="button">
-          <img
-            src={Arrow}
-            alt="Collapse sidebar"
-            className="w-[24px] h-[24px]"
-          />
+          <img src={Arrow} alt="Collapse sidebar" className="w-[24px] h-[24px]" />
         </button>
       </div>
 
+      {/* ================= Divider ================= */}
       <div className="mx-6 shrink-0 border-t border-[#6B707B]" />
 
+      {/* ================= Navigation ================= */}
       <nav className="w-full px-6 mt-6">
         <ul
           className="
             w-full
             flex
             flex-col
-            gap-[8px]
+            gap-8px
             font-['IBM_Plex_Sans']
             font-normal
             text-sm
@@ -109,32 +70,16 @@ function DrDashboardSidebar() {
           "
         >
           {NAV_ITEMS.map((item) => (
-            <li
-              key={item.path}
-              className="w-full h-[42px]"
-            >
+            <li key={item.path} className="w-full h-[42px]">
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `
-                    w-full
-                    h-full
-                    flex
-                    items-center
-                    gap-3
-                    px-3
-                    rounded-lg
-                    text-white
-                    ${isActive ? "bg-[#000A5A]" : ""}
-                  `
+                  `w-full h-full flex items-center gap-3 px-3 rounded-lg text-white ${
+                    isActive ? "bg-[#000A5A]" : ""
+                  }`
                 }
               >
-                <img
-                  src={item.icon}
-                  alt=""
-                  className="w-[18px] h-[18px] object-contain"
-                />
-
+                <img src={item.icon} alt="" className="w-[18px] h-[18px] object-contain" />
                 <span>{item.label}</span>
               </NavLink>
             </li>
@@ -142,6 +87,7 @@ function DrDashboardSidebar() {
         </ul>
       </nav>
 
+      {/* ================= Bottom ================= */}
       <div
         className="
           w-full
@@ -156,66 +102,33 @@ function DrDashboardSidebar() {
           shrink-0
         "
       >
+        {/* Settings */}
         <NavLink
           to="/settings"
           className={({ isActive }) =>
-            `
-              w-full
-              h-[42px]
-              flex
-              items-center
-              gap-1
-              p-3
-              rounded-lg
-              font-['IBM_Plex_Sans']
-              font-normal
-              text-sm
-              leading-[14px]
-              tracking-[-0.35px]
-              text-white
-              ${isActive ? "bg-[#000A5A]" : ""}
-            `
+            `w-full h-[42px] flex items-center gap-1 p-3 rounded-lg font-['IBM_Plex_Sans'] font-normal text-sm leading-[14px] tracking-[-0.35px] text-white ${
+              isActive ? "bg-[#000A5A]" : ""
+            }`
           }
         >
-          <img
-            src={Settings}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
-
+          <img src={Settings} alt="" className="w-[18px] h-[18px]" />
           <span>Settings</span>
         </NavLink>
 
+        {/* Help Center */}
         <NavLink
           to="/help-center"
           className={({ isActive }) =>
-            `
-              w-full
-              h-[42px]
-              flex
-              items-center
-              gap-1
-              p-3
-              rounded-lg
-              font-['IBM_Plex_Sans']
-              font-normal
-              text-sm
-              leading-[14px]
-              tracking-[-0.35px]
-              text-white
-              ${isActive ? "bg-[#000A5A]" : ""}
-            `
+            `w-full h-[42px] flex items-center gap-1 p-3 rounded-lg font-['IBM_Plex_Sans'] font-normal text-sm leading-[14px] tracking-[-0.35px] text-white ${
+              isActive ? "bg-[#000A5A]" : ""
+            }`
           }
         >
-          <img
-            src={HelpCenter}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
-
+          <img src={HelpCenter} alt="" className="w-[18px] h-[18px]" />
           <span>Help Center</span>
         </NavLink>
 
+        {/* Log out */}
         <button
           type="button"
           onClick={handleLogout}
@@ -235,12 +148,7 @@ function DrDashboardSidebar() {
             text-white
           "
         >
-          <img
-            src={Logout}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
-
+          <img src={Logout} alt="" className="w-[18px] h-[18px]" />
           <span>Log out</span>
         </button>
       </div>

@@ -13,6 +13,7 @@ function AdminDrProfileNavbar({
 }) {
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
+<<<<<<< HEAD
 
   const getPageInfo = () => {
     const path = location.pathname;
@@ -75,11 +76,65 @@ function AdminDrProfileNavbar({
 
     return {
       title: "Doctor Dashboard",
+=======
+  const getPageInfo = () =>{
+    const path = location.pathname;
+    if(path === "/admin/overview"){
+      return{
+        title: "Overview",
+        subtitle: "Overview of your admin dashboard",
+      };
+    }
+    if (path === "/admin/appointments") {
+      return {
+        title: "Appointments",
+        subtitle: "Manage all appointments",
+      };
+    }
+    if (path === "/admin/doctors") {
+      return {
+        title: "Doctors",
+        subtitle: "Manage all doctors and their information",
+      };
+    }
+    if (path.startsWith("/admin/doctors/")) {
+      return {
+        title: "Doctor Profile",
+        subtitle: "View and manage doctor information",
+      };
+    }
+    if (path === "/admin/billing") {
+      return {
+        title: "Billing",
+        subtitle: "Manage billing and payments",
+      };
+    }
+
+    if (path === "/admin/patient") {
+      return {
+        title: "Patients",
+        subtitle: "Manage all patients and their information",
+      };
+    }
+
+    if (path.startsWith("/admin/patient/")) {
+      return {
+        title: "Patient Profile",
+        subtitle: "View and manage patient information",
+      };
+    }
+    return {
+      title: "Admin Dashboard",
+>>>>>>> origin/dev
       subtitle: "Manage your dashboard",
     };
   };
 
+<<<<<<< HEAD
   const { title, subtitle } = getPageInfo();
+=======
+    const { title, subtitle } = getPageInfo();
+>>>>>>> origin/dev
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -91,6 +146,10 @@ function AdminDrProfileNavbar({
     }
   };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
   return (
     <header
       className="
@@ -111,7 +170,10 @@ function AdminDrProfileNavbar({
           justify-between
         "
       >
+<<<<<<< HEAD
         {/* Page Title */}
+=======
+>>>>>>> origin/dev
         <div
           className="
             w-[261px]
@@ -147,8 +209,11 @@ function AdminDrProfileNavbar({
             {subtitle}
           </p>
         </div>
+<<<<<<< HEAD
 
         {/* Right Side */}
+=======
+>>>>>>> origin/dev
         <div
           className="
             w-[740px]
@@ -158,7 +223,10 @@ function AdminDrProfileNavbar({
             gap-6
           "
         >
+<<<<<<< HEAD
           {/* Search */}
+=======
+>>>>>>> origin/dev
           <div
             className="
               w-[327px]
@@ -223,7 +291,10 @@ function AdminDrProfileNavbar({
             />
           </div>
 
+<<<<<<< HEAD
           {/* Actions */}
+=======
+>>>>>>> origin/dev
           <div
             className="
               w-[389px]
@@ -233,7 +304,10 @@ function AdminDrProfileNavbar({
               gap-2
             "
           >
+<<<<<<< HEAD
             {/* Dark Mode */}
+=======
+>>>>>>> origin/dev
             <button
               type="button"
               aria-label="Toggle dark mode"
@@ -254,7 +328,10 @@ function AdminDrProfileNavbar({
               />
             </button>
 
+<<<<<<< HEAD
             {/* Language */}
+=======
+>>>>>>> origin/dev
             <button
               type="button"
               aria-label="Change language"
@@ -274,8 +351,11 @@ function AdminDrProfileNavbar({
                 className="w-[55px] h-[55px] object-contain"
               />
             </button>
+<<<<<<< HEAD
 
             {/* Notifications */}
+=======
+>>>>>>> origin/dev
             <button
               type="button"
               aria-label="Notifications"
@@ -296,7 +376,10 @@ function AdminDrProfileNavbar({
               />
             </button>
 
+<<<<<<< HEAD
             {/* Profile */}
+=======
+>>>>>>> origin/dev
             <button
               type="button"
               className="
@@ -332,7 +415,10 @@ function AdminDrProfileNavbar({
                     object-cover
                   "
                 />
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/dev
                 <div
                   className="
                     flex
@@ -361,11 +447,18 @@ function AdminDrProfileNavbar({
                       text-[#A7ABB5]
                     "
                   >
+<<<<<<< HEAD
                     Doctor
                   </span>
                 </div>
               </div>
 
+=======
+                    Admin
+                  </span>
+                </div>
+              </div>
+>>>>>>> origin/dev
               <img
                 src={Dropdown}
                 alt="Open profile menu"
@@ -385,4 +478,7 @@ function AdminDrProfileNavbar({
 }
 
 export default AdminDrProfileNavbar;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/dev

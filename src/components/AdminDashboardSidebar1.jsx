@@ -4,53 +4,66 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Arrow from "../assets/SidebarIcons/arrow.png";
 import Logo from "../assets/SidebarIcons/logo.png";
 import Appointment from "../assets/SidebarIcons/appointment.png";
-import Patient from "../assets/SidebarIcons/patient.png";
+import Doctor from "../assets/SidebarIcons/Doctor.png";
 import Message from "../assets/SidebarIcons/message.png";
 import Overview from "../assets/SidebarIcons/overwiev.png";
-import Schedule from "../assets/SidebarIcons/schadule.png";
+import Payment from "../assets/SidebarIcons/payment.png";
+import Patient from "../assets/SidebarIcons/patient.png";
 import Settings from "../assets/SidebarIcons/setting.png";
 import HelpCenter from "../assets/SidebarIcons/help-center.png";
 import Logout from "../assets/SidebarIcons/logout.png";
-import MyRequest from "../assets/SidebarIcons/myRequest.png";
+import Schedule from "../assets/SidebarIcons/schadule.png";
 
 const NAV_ITEMS = [
   {
     label: "Overview",
     icon: Overview,
-    path: "/overview",
+    path: "/admin/overview",
   },
   {
     label: "Appointment",
     icon: Appointment,
-    path: "/appointments",
+    path: "/admin/appointments",
   },
   {
-    label: "Patient List",
+    label: "Doctor",
+    icon: Doctor,
+    path: "/admin/doctors",
+  },
+  {
+    label: "Patient",
     icon: Patient,
-    path: "/patient",
+    path: "/admin/patient",
   },
   {
-    label: "My requests",
-    icon: MyRequest,
-    path: "/my-requests",
+    label: "Billing",
+    icon: Payment,
+    path: "/admin/billing",
   },
   {
     label: "Messages",
     icon: Message,
-    path: "/messages",
+    path: "/admin/messages",
   },
   {
     label: "Schedule",
     icon: Schedule,
-    path: "/schedule",
+    path: "/admin/schedule",
   },
+  { label: "Analytics", icon: Message, path: "/admin/analytics" },
 ];
 
-function DrDashboardSidebar() {
+function AdminDashboardSidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     console.log("Logging out...");
+
+    // Later:
+    // clear token
+    // clear user data
+    // call logout API
+
     navigate("/login");
   };
 
@@ -59,6 +72,7 @@ function DrDashboardSidebar() {
       className="
         w-[264px]
         h-screen
+        shrink-0
         flex
         flex-col
         rounded-tl-[32px]
@@ -81,7 +95,7 @@ function DrDashboardSidebar() {
         <img
           src={Logo}
           alt="LeoClinic"
-          className="w-[88px] h-[30px]"
+          className="w-[88px] h-[30px] object-contain"
         />
 
         <button type="button">
@@ -94,14 +108,13 @@ function DrDashboardSidebar() {
       </div>
 
       <div className="mx-6 shrink-0 border-t border-[#6B707B]" />
-
       <nav className="w-full px-6 mt-6">
         <ul
           className="
             w-full
             flex
             flex-col
-            gap-[8px]
+            gap-2
             font-['IBM_Plex_Sans']
             font-normal
             text-sm
@@ -109,10 +122,7 @@ function DrDashboardSidebar() {
           "
         >
           {NAV_ITEMS.map((item) => (
-            <li
-              key={item.path}
-              className="w-full h-[42px]"
-            >
+            <li key={item.path} className="w-full h-[42px]">
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
@@ -125,7 +135,9 @@ function DrDashboardSidebar() {
                     px-3
                     rounded-lg
                     text-white
-                    ${isActive ? "bg-[#000A5A]" : ""}
+                    transition-colors
+                    duration-200
+                    ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
                   `
                 }
               >
@@ -157,14 +169,14 @@ function DrDashboardSidebar() {
         "
       >
         <NavLink
-          to="/settings"
+          to="/admin/settings"
           className={({ isActive }) =>
             `
               w-full
               h-[42px]
               flex
               items-center
-              gap-1
+              gap-2
               p-3
               rounded-lg
               font-['IBM_Plex_Sans']
@@ -173,28 +185,26 @@ function DrDashboardSidebar() {
               leading-[14px]
               tracking-[-0.35px]
               text-white
-              ${isActive ? "bg-[#000A5A]" : ""}
+              transition-colors
+              duration-200
+              ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
             `
           }
         >
-          <img
-            src={Settings}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={Settings} alt="" className="w-[18px] h-[18px]" />
 
           <span>Settings</span>
         </NavLink>
 
         <NavLink
-          to="/help-center"
+          to="/admin/help-center"
           className={({ isActive }) =>
             `
               w-full
               h-[42px]
               flex
               items-center
-              gap-1
+              gap-2
               p-3
               rounded-lg
               font-['IBM_Plex_Sans']
@@ -203,15 +213,13 @@ function DrDashboardSidebar() {
               leading-[14px]
               tracking-[-0.35px]
               text-white
-              ${isActive ? "bg-[#000A5A]" : ""}
+              transition-colors
+              duration-200
+              ${isActive ? "bg-[#0018A6]" : "hover:bg-[#0018A6]/50"}
             `
           }
         >
-          <img
-            src={HelpCenter}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={HelpCenter} alt="" className="w-[18px] h-[18px]" />
 
           <span>Help Center</span>
         </NavLink>
@@ -224,7 +232,7 @@ function DrDashboardSidebar() {
             h-[42px]
             flex
             items-center
-            gap-1
+            gap-2
             p-3
             rounded-lg
             font-['IBM_Plex_Sans']
@@ -233,13 +241,12 @@ function DrDashboardSidebar() {
             leading-[14px]
             tracking-[-0.35px]
             text-white
+            hover:bg-[#0018A6]/50
+            transition-colors
+            duration-200
           "
         >
-          <img
-            src={Logout}
-            alt=""
-            className="w-[18px] h-[18px]"
-          />
+          <img src={Logout} alt="" className="w-[18px] h-[18px]" />
 
           <span>Log out</span>
         </button>
@@ -248,4 +255,4 @@ function DrDashboardSidebar() {
   );
 }
 
-export default DrDashboardSidebar;
+export default AdminDashboardSidebar;
