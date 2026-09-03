@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
-import DrProfileCard from "../assets/drProfile.png";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
+import DrProfileCard from "../../assets/drProfile.png";
 
-import CompletedIcon from "../assets/completed.png";
-import PatientsIcon from "../assets/SidebarIcons/patients.png";
-import ReviewsIcon from "../assets/reviews.png";
-import AttendanceIcon from "../assets/attendance.png";
-import DetailsIcon from "../assets/DetailsIcon.png";
-import ChevronLeftIcon from "../assets/leftArrow.png";
-import ChevronRightIcon from "../assets/circle-arrow-left-01.png";
+import CompletedIcon from "../../assets/completed.png";
+import PatientsIcon from "../../assets/SidebarIcons/patients.png";
+import ReviewsIcon from "../../assets/reviews.png";
+import AttendanceIcon from "../../assets/attendance.png";
+import DetailsIcon from "../../assets/DetailsIcon.png";
+import ChevronLeftIcon from "../../assets/leftArrow.png";
+import ChevronRightIcon from "../../assets/circle-arrow-left-01.png";
 
 const DAYS = [
   { day: "Sat", date: 1 },

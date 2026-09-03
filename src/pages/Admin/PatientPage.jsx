@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
-import alarm from "../assets/PatientPage/alarm.png";
-import upRightArrow from "../assets/PatientPage/arrow-up-right.png";
-import heart from "../assets/PatientPage/Heart.png";
-import add from "../assets/PatientPage/add.png";
-import rate from "../assets/PatientPage/rate.png";
-import downRightArrow from "../assets/PatientPage/arrow-down-right.png";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
+import alarm from "../../assets/PatientPage/alarm.png";
+import upRightArrow from "../../assets/PatientPage/arrow-up-right.png";
+import heart from "../../assets/PatientPage/Heart.png";
+import add from "../../assets/PatientPage/add.png";
+import rate from "../../assets/PatientPage/rate.png";
+import downRightArrow from "../../assets/PatientPage/arrow-down-right.png";
 
 const patients = [
   {

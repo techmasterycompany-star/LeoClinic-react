@@ -1,5 +1,5 @@
 import React from "react";
-import DoctorSidebar from "../../components/doctor/DoctorSidebar";
+import DoctorSidebar from "../../components/DrDashboardSidebar";
 
 const vitals = [
   ["♡", "118/76", "mmHg", "Blood pressure", "Normal"],

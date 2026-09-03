@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import PatientDashboardSidebar from "../components/DrDashboardSidebar";
-import PatientDashboardNavbar from "../components/AdminDrProfileNavbar";
+import PatientDashboardSidebar from "../../components/DrDashboardSidebar";
+import PatientDashboardNavbar from "../../components/AdminDrProfileNavbar";
 
 function AddPrescription() {
   const navigate = useNavigate();

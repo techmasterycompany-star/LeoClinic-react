@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { Pencil, Trash2, Clock, X } from "lucide-react";
-import DrDashboardSidebar from "../components/DrDashboardSidebar";
-import AdminDrProfileNavbar from "../components/AdminDrProfileNavbar";
-import DrRightSidebar from "../components/DrRightSidebar";
+import DrDashboardSidebar from "../../components/DrDashboardSidebar";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+import DrRightSidebar from "../../components/DrRightSidebar";
 
 const STATE_STYLES = {
   "New Visit": "bg-emerald-50 text-emerald-600",

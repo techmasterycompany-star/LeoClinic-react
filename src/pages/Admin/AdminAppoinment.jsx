@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
 
 // Icons
-import TotalPatientsIcon from "../assets/totalappoinment.png";
-import ActiveTreatmentsIcon from "../assets/checkmark-square-04.png";
-import NewThisMonthIcon from "../assets/refresh.png";
-import SatisfiedPatientsIcon from "../assets/cancel-square.png";
-import profile from "../assets/profilePic.png";
+import TotalPatientsIcon from "../../assets/totalappoinment.png";
+import ActiveTreatmentsIcon from "../../assets/checkmark-square-04.png";
+import NewThisMonthIcon from "../../assets/refresh.png";
+import SatisfiedPatientsIcon from "../../assets/cancel-square.png";
+import profile from "../../assets/profilePic.png";
 
 const STATS = [
   {

@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
 
 import {
   Search,

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
-import DrProfileCard from "../assets/drProfile.png";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
+import DrProfileCard from "../../assets/drProfile.png";
 
-import VisitInfoIcon from "../assets/DetailsIcon.png";
-import ServicesIcon from "../assets/DetailsIcon.png";
-import ReviewsIcon from "../assets/DetailsIcon.png";
-import FeeIcon from "../assets/fee.png";
-import DurationIcon from "../assets/duration.png";
-import LocationIcon from "../assets/location.png";
-import HoursIcon from "../assets/working hours.png";
-import AvailabilityIcon from "../assets/availability.png";
-import VisitTypeIcon from "../assets/visit type.png";
-import BookmarkIcon from "../assets/DetailsIcon.png";
-import EditIcon from "../assets/DetailsIcon.png";
-import DoctorThumb from "../assets/drProfile.png";
+import VisitInfoIcon from "../../assets/DetailsIcon.png";
+import ServicesIcon from "../../assets/DetailsIcon.png";
+import ReviewsIcon from "../../assets/DetailsIcon.png";
+import FeeIcon from "../../assets/fee.png";
+import DurationIcon from "../../assets/duration.png";
+import LocationIcon from "../../assets/location.png";
+import HoursIcon from "../../assets/working_hours.png";
+import AvailabilityIcon from "../../assets/availability.png";
+import VisitTypeIcon from "../../assets/visit_type.png";
+import BookmarkIcon from "../../assets/DetailsIcon.png";
+import EditIcon from "../../assets/DetailsIcon.png";
+import DoctorThumb from "../../assets/drProfile.png";
 
 const SERVICES = [
   "Heart Check-up",

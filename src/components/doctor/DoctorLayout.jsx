@@ -1,4 +1,4 @@
-import DoctorSidebar from "./DoctorSidebar";
+import DoctorSidebar from "../DrDashboardSidebar";
 
 function DoctorLayout({ children }) {
   return (

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import Sidebar from "../components/PatientDashboardSidebar.jsx";
-import Navbar from "../components/AdminDrProfileNavbar";
-import profile from "../assets/profilePic.png";
+import Sidebar from "../../components/PatientDashboardSidebar.jsx";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+import profile from "../../assets/profilePic.png";
 
 const FILTERS = [
   { label: "All", count: null },

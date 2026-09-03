@@ -8,9 +8,9 @@ import {
   FileText,
   X,
 } from "lucide-react";
-import DrDashboardSidebar from "../components/DrDashboardSidebar";
-import AdminDrProfileNavbar from "../components/AdminDrProfileNavbar";
-import ProfilePicture from "../assets/DrDashboard/profile.png";
+import DrDashboardSidebar from "../../components/DrDashboardSidebar";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+import ProfilePicture from "../../assets/DrDashboard/profile.png";
 
 const PATIENT = {
   name: "Irma Schamberger",

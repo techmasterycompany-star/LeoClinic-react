@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../components/AdminDashboardSidebar1";
-import Navbar from "../components/AdminDrProfileNavbar";
-import TotalDoctorsIcon from "../assets/overviewpage/totalDr.png";
-import TotalPatientsIcon from "../assets/overviewpage/totalPatient.png";
-import AppointmentsIcon from "../assets/overviewpage/totalAppoiments.png";
-import RevenueIcon from "../assets/overviewpage/revenue.png";
+import Sidebar from "../../components/AdminDashboardSidebar1";
+import Navbar from "../../components/AdminDrProfileNavbar";
+import TotalDoctorsIcon from "../../assets/overviewpage/totalDr.png";
+import TotalPatientsIcon from "../../assets/overviewpage/totalPatient.png";
+import AppointmentsIcon from "../../assets/overviewpage/totalAppoiments.png";
+import RevenueIcon from "../../assets/overviewpage/revenue.png";
 
 function AdminOverview() {
   return (
