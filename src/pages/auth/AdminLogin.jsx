@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../components/auth/AuthLayout";
 import AuthInput from "../../components/auth/AuthInput";
 import AuthButton from "../../components/auth/AuthButton";
-import { adminLogin } from "../../api/authService";
+import { loginUser } from "../../api/authService";
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -27,7 +27,7 @@ function AdminLogin() {
     setLoading(true);
 
     try {
-      const data = await adminLogin({ email, password });
+      const data = await loginUser({ email, password });
 
       // Extract token (fallbacks for different field names)
       const token = data.token || data.jwt || data.accessToken;

@@ -17,32 +17,32 @@ const NAV_ITEMS = [
   {
     label: "Overview",
     icon: Overview,
-    path: "/overview",
+    path: "/doctor/overview",
   },
   {
     label: "Appointment",
     icon: Appointment,
-    path: "/appointments",
+    path: "/doctor/slot",
   },
   {
     label: "Patient List",
     icon: Patient,
-    path: "/patient",
+    path: "/doctor/patients",
   },
   {
     label: "My requests",
     icon: MyRequest,
-    path: "/my-requests",
+    path: "/doctor/request",
   },
   {
     label: "Messages",
     icon: Message,
-    path: "/messages",
+    path: "/doctor/messages",
   },
   {
     label: "Schedule",
     icon: Schedule,
-    path: "/schedule",
+    path: "/doctor/schedule",
   },
 ];
 

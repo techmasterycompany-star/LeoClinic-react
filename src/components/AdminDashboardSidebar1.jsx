@@ -40,16 +40,6 @@ const NAV_ITEMS = [
     icon: Payment,
     path: "/admin/billing",
   },
-  {
-    label: "Messages",
-    icon: Message,
-    path: "/admin/messages",
-  },
-  {
-    label: "Schedule",
-    icon: Schedule,
-    path: "/admin/schedule",
-  },
   { label: "Analytics", icon: Message, path: "/admin/analytics" },
 ];
 

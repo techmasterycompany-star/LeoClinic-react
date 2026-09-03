@@ -10,11 +10,21 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const [role, setRole] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const MOCK_DOCTOR = {
+  email: "doctor@test.com",
+  password: "123456",
+  user: {
+    id: "mock-doctor-1",
+    name: "Dr. Ahmed Mohamed",
+    email: "doctor@test.com",
+    role: "doctor",
+  },
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,36 +34,91 @@ function Login() {
       return;
     }
 
-    if (!role) {
-      setError("Please select Doctor or Patient.");
-      return;
+    // Temporary mock login for testing Doctor Dashboard
+  if (
+    email === MOCK_DOCTOR.email &&
+    password === MOCK_DOCTOR.password
+  ) {
+    localStorage.setItem("token", "mock-doctor-token");
+    localStorage.setItem("userRole", "DOCTOR");
+    localStorage.setItem("user", JSON.stringify(MOCK_DOCTOR.user));
+
+    if (remember) {
+      localStorage.setItem("rememberMe", "true");
+    } else {
+      localStorage.removeItem("rememberMe");
     }
 
-    setError("");
-    setLoading(true);
+    navigate("/doctor/overview");
+    return;
+  }
 
-    try {
-      const data = await loginUser({ email, password, role });
+  setError("");
+  setLoading(true);
 
-      // Save credentials (adjust keys if API returns different field names, e.g., data.accessToken)
-      const token = data.token || data.jwt || data.accessToken;
-      if (token) {
-        localStorage.setItem("token", token);
+  try {
+    const response = await loginUser({
+      email,
+      password,
+    });
+
+      // Backend response:
+      // {
+      //   success: true,
+      //   data: {
+      //     accessToken: "...",
+      //     user: {
+      //       role: "admin" / "doctor" / "patient"
+      //     }
+      //   }
+      // }
+
+      const accessToken = response?.data?.accessToken;
+      const user = response?.data?.user;
+      const userRole = user?.role?.toUpperCase();
+
+      if (!accessToken || !userRole) {
+        throw new Error("Invalid login response from server.");
       }
-      
-      // Store uppercase role for ProtectedRoute check
-      const formattedRole = role.toUpperCase();
-      localStorage.setItem("userRole", formattedRole);
 
-      // Redirect user according to role selection
-      if (role === "doctor") {
-        navigate("/doctor/overview");
-      } else if (role === "patient") {
-        navigate("/patient/overview");
+      // Save authentication data
+      localStorage.setItem("token", accessToken);
+      localStorage.setItem("userRole", userRole);
+
+      // Optional: save user information for later use
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Remember device
+      if (remember) {
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.removeItem("rememberMe");
+      }
+
+      // Redirect according to the role returned by the backend
+      switch (userRole) {
+        case "ADMIN":
+          navigate("/admin/overview");
+          break;
+
+        case "DOCTOR":
+          navigate("/doctor/overview");
+          break;
+
+        case "PATIENT":
+          navigate("/patient/overview");
+          break;
+
+        default:
+          throw new Error("Unknown user role.");
       }
     } catch (err) {
+      console.error("Login error:", err);
+
       setError(
-        err.response?.data?.message || "Invalid credentials or network error."
+        err.response?.data?.message ||
+          err.message ||
+          "Invalid credentials or network error."
       );
     } finally {
       setLoading(false);
@@ -137,35 +202,7 @@ function Login() {
           <div className="h-px bg-[#9CA3AF] flex-1" />
         </div>
 
-        <div className="flex justify-center gap-8">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <span className="text-sm text-[#4B5563]">Doctor</span>
-
-            <input
-              type="radio"
-              name="role"
-              value="doctor"
-              checked={role === "doctor"}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-4 h-4 accent-[#1026B8]"
-            />
-          </label>
-
-          <label className="flex items-center gap-2 cursor-pointer">
-            <span className="text-sm text-[#4B5563]">Patient</span>
-
-            <input
-              type="radio"
-              name="role"
-              value="patient"
-              checked={role === "patient"}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-4 h-4 accent-[#1026B8]"
-            />
-          </label>
-        </div>
-
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center">
           <button
             type="button"
             className="h-12 px-5 rounded-full border border-[#4B5563] flex items-center gap-3 text-sm text-[#4B5563] hover:bg-gray-50 transition"
