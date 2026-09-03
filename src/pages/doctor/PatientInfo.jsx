@@ -2,12 +2,12 @@ import React from "react";
 import DoctorSidebar from "../../components/doctor/DoctorSidebar";
 
 const vitals = [
-  ["♡", "118/76", "mmHg", "Blood pressure", "Normal"],
-  ["⌁", "72", "bpm", "Pulse", "Regular"],
-  ["≋", "98", "%", "SpO₂", "Room air"],
-  ["◯", "94", "mg/dL", "Blood glucose", "Fasting"],
-  ["▣", "6", "/10", "Pain score", "Upper right"],
-  ["♨", "36.7", "°C", "Temperature", "Afebrile"],
+  ["118/76", "mmHg", "Blood pressure", "Normal"],
+  ["72", "bpm", "Pulse", "Regular"],
+  ["98", "%", "SpO₂", "Room air"],
+  ["94", "mg/dL", "Blood glucose", "Fasting"],
+  ["6", "/10", "Pain score", "Upper right"],
+  ["36.7", "°C", "Temperature", "Afebrile"],
 ];
 
 const history = [
@@ -47,7 +47,6 @@ export default function PatientInfo() {
       <DoctorSidebar />
 
       <main className="ml-[216px]">
-        {/* Header */}
         <header className="flex h-[92px] items-center justify-between bg-[#f7f8fc] px-7">
           <div>
             <h1 className="text-3xl font-bold text-gray-600">Doctor</h1>
@@ -58,20 +57,12 @@ export default function PatientInfo() {
 
           <div className="flex items-center gap-3">
             <div className="flex h-11 w-[320px] items-center rounded-full border bg-white px-4 text-xs text-gray-400">
-              ⌕ &nbsp; Search by name, ID, or condition.
+              Search by name, ID, or condition.
             </div>
 
-            <button className="h-10 w-10 rounded-full bg-white shadow-sm">
-              ◐
-            </button>
-
-            <button className="h-10 w-10 rounded-full bg-white shadow-sm">
-              ◉
-            </button>
-
-            <button className="h-10 w-10 rounded-full bg-white shadow-sm">
-              ♧
-            </button>
+            <button className="h-10 w-10 rounded-full bg-white shadow-sm" />
+            <button className="h-10 w-10 rounded-full bg-white shadow-sm" />
+            <button className="h-10 w-10 rounded-full bg-white shadow-sm" />
 
             <div className="flex h-11 w-[200px] items-center gap-2 rounded-full bg-white px-3">
               <div className="h-7 w-7 rounded-full bg-gray-300" />
@@ -81,16 +72,14 @@ export default function PatientInfo() {
                 <p className="text-[10px] text-gray-400">Category</p>
               </div>
 
-              ⌄
+              <span className="text-gray-500">⌄</span>
             </div>
           </div>
         </header>
 
         <div className="p-7">
           <div className="grid grid-cols-[1.7fr_1fr] gap-5">
-            {/* LEFT */}
             <div className="space-y-5">
-              {/* Patient Profile */}
               <Section>
                 <div className="grid grid-cols-[190px_1fr] gap-7">
                   <div className="border-r border-gray-200 pr-6 text-center">
@@ -119,8 +108,7 @@ export default function PatientInfo() {
                     </div>
 
                     <button className="mt-5 h-10 w-full rounded-full bg-[#0922b8] text-xs font-semibold text-white">
-                      Send Message
-                    </button>
+                      Send Message</button>
                   </div>
 
                   <div className="grid grid-cols-2 gap-x-8 gap-y-5">
@@ -143,7 +131,6 @@ export default function PatientInfo() {
                 </div>
               </Section>
 
-              {/* Vitals */}
               <Section>
                 <div className="flex justify-between">
                   <h2 className="text-xl font-semibold text-gray-600">
@@ -156,13 +143,12 @@ export default function PatientInfo() {
                 </div>
 
                 <div className="mt-5 grid grid-cols-3 gap-4">
-                  {vitals.map(([icon, value, unit, title, status]) => (
+                  {vitals.map(([value, unit, title, status]) => (
                     <div
                       key={title}
                       className="rounded-2xl bg-[#f0f1f6] p-4"
                     >
                       <div className="flex items-center gap-2">
-                        <span>{icon}</span>
                         <span className="font-semibold text-gray-600">
                           {value}
                         </span>
@@ -181,7 +167,6 @@ export default function PatientInfo() {
                 </div>
               </Section>
 
-              {/* Notes */}
               <Section>
                 <div className="flex items-center justify-between">
                   <h2 className="text-xl font-semibold text-gray-600">
@@ -209,14 +194,12 @@ export default function PatientInfo() {
                 </div>
 
                 <button className="mt-4 h-10 w-full rounded-full bg-[#0922b8] text-xs text-white">
-                  ✎ &nbsp; Add Note
+                  Add Note
                 </button>
               </Section>
             </div>
 
-            {/* RIGHT */}
             <div className="space-y-5">
-              {/* Alerts */}
               <Section>
                 <h2 className="text-xl text-gray-600">Clinical alerts</h2>
 
@@ -225,15 +208,16 @@ export default function PatientInfo() {
                     ["Allergy", "Cataflam (diclofenac) — severe rash"],
                     ["Allergy", "Penicillin - anaphylaxis,2021"],
                     ["Precaution", "Mild asthma - keep inhaler in reach"],
-                    ["Bleeding", "On Low -dose aspirin, check INR before surgery"],
+                    [
+                      "Bleeding",
+                      "On Low -dose aspirin, check INR before surgery",
+                    ],
                   ].map(([type, text]) => (
                     <div
                       key={text}
                       className="rounded-xl border border-red-400 bg-red-50 p-3"
                     >
                       <div className="flex gap-3">
-                        <span className="text-red-500">△</span>
-
                         <div>
                           <p className="text-xs font-semibold text-red-500">
                             {type}
@@ -249,7 +233,6 @@ export default function PatientInfo() {
                 </div>
               </Section>
 
-              {/* Medical History */}
               <Section>
                 <h2 className="text-xl text-gray-600">Medical history</h2>
 
@@ -263,6 +246,7 @@ export default function PatientInfo() {
                         <p className="text-xs font-semibold text-gray-600">
                           {name}
                         </p>
+
                         <p className="text-[9px] text-gray-400">{date}</p>
                       </div>
 
@@ -274,7 +258,6 @@ export default function PatientInfo() {
                 </div>
               </Section>
 
-              {/* Files */}
               <Section>
                 <div className="flex items-center justify-between">
                   <h2 className="text-xl font-semibold text-gray-600">
@@ -282,7 +265,7 @@ export default function PatientInfo() {
                   </h2>
 
                   <button className="text-xs text-blue-700">
-                    ＋ Add Files
+                    Add Files
                   </button>
                 </div>
 
@@ -292,15 +275,15 @@ export default function PatientInfo() {
                       key={file}
                       className="flex items-center rounded-xl border border-gray-200 px-4 py-3"
                     >
-                      <span className="text-gray-500">▤</span>
+                      <span className="text-gray-500">File</span>
 
                       <span className="ml-3 flex-1 text-xs text-gray-600">
                         {file}
                       </span>
 
-                      <button className="text-blue-600">↓</button>
+                      <button className="text-blue-600">Download</button>
 
-                      <button className="ml-4 text-red-500">♧</button>
+                      <button className="ml-4 text-red-500">Delete</button>
                     </div>
                   ))}
                 </div>
@@ -308,7 +291,6 @@ export default function PatientInfo() {
             </div>
           </div>
 
-          {/* Treatment Timeline */}
           <Section className="mt-5">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold text-gray-600">
@@ -316,7 +298,7 @@ export default function PatientInfo() {
               </h2>
 
               <button className="rounded-full bg-[#0922b8] px-6 py-2 text-xs text-white">
-                ＋ Schedule
+                Schedule
               </button>
             </div>
 
@@ -343,13 +325,12 @@ export default function PatientInfo() {
                     <p className="mt-2 text-[10px] text-gray-400">
                       Root Canal Treatment · 09:00 – 10:00
                     </p>
-
                     <p className="text-[10px] text-gray-400">
                       Drg. Adam H. with Jessica
                     </p>
                   </div>
 
-                  <span className="ml-auto text-blue-600">▣</span>
+                  <span className="ml-auto text-blue-600">View</span>
                 </div>
               ))}
             </div>

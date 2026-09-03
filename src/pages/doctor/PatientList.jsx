@@ -60,7 +60,7 @@ function StatCard({ icon, value, title, percentage, negative }) {
             negative ? "text-red-500" : "text-emerald-600"
           }`}
         >
-          {negative ? "↘" : "↗"} {percentage}
+          {percentage}
         </span>
       </div>
 
@@ -77,7 +77,6 @@ export default function PatientList() {
       <DoctorSidebar />
 
       <main className="ml-[216px] min-h-screen bg-white">
-        {/* Header */}
         <header className="flex h-[122px] items-center justify-between bg-[#f7f8fc] px-12">
           <div>
             <h1 className="text-4xl font-bold text-gray-700">Doctor</h1>
@@ -88,21 +87,12 @@ export default function PatientList() {
 
           <div className="flex items-center gap-3">
             <div className="flex h-14 w-[330px] items-center rounded-full border border-gray-200 bg-white px-5 text-sm text-gray-400">
-              <span className="mr-3 text-xl">⌕</span>
               Search by name, ID, or condition.
             </div>
 
-            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-              ◐
-            </button>
-
-            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-              ◉
-            </button>
-
-            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-              ♧
-            </button>
+            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm" />
+            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm" />
+            <button className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm" />
 
             <div className="flex h-14 w-[265px] items-center gap-3 rounded-full bg-white px-4">
               <div className="h-9 w-9 rounded-full bg-gray-200" />
@@ -112,23 +102,20 @@ export default function PatientList() {
                 <p className="text-xs text-gray-400">Category</p>
               </div>
 
-              <span>⌄</span>
+              <span className="text-gray-500">⌄</span>
             </div>
           </div>
         </header>
 
         <section className="px-12 py-12">
-          {/* Statistics */}
           <div className="grid grid-cols-4 gap-5">
             <StatCard
-              icon="♧"
               title="Total Patients"
               value="2,845"
               percentage="+12.5%"
             />
 
             <StatCard
-              icon="♡"
               title="Active Treatments"
               value="842"
               percentage="-3.4%"
@@ -136,24 +123,21 @@ export default function PatientList() {
             />
 
             <StatCard
-              icon="♙"
               title="New This Month"
               value="123"
               percentage="+8.2%"
             />
 
             <StatCard
-              icon="♧"
               title="Satisfied Patients"
               value="98%"
               percentage="+2.1%"
             />
           </div>
 
-          {/* Filters */}
           <div className="mt-7 flex gap-3">
             {["All", "New", "In Treatment", "Follow Up"].map(
-              (filter, index) => (
+                (filter, index) => (
                 <button
                   key={filter}
                   className={`rounded-xl px-4 py-2 text-sm ${
@@ -168,7 +152,6 @@ export default function PatientList() {
             )}
           </div>
 
-          {/* Directory Header */}
           <div className="mt-11 flex items-center justify-between">
             <div>
               <h2 className="text-3xl font-semibold text-gray-600">
@@ -182,16 +165,15 @@ export default function PatientList() {
 
             <div className="flex gap-5">
               <button className="h-11 rounded-full border border-gray-300 px-8 text-sm text-gray-500">
-                ⇩ &nbsp; Export
+                Export
               </button>
 
               <button className="h-11 rounded-full bg-[#0922b8] px-7 text-sm text-white">
-                ⊕ &nbsp; Add Patient
+                Add Patient
               </button>
             </div>
           </div>
 
-          {/* Table */}
           <div className="mt-9 overflow-hidden">
             <div className="grid grid-cols-[1fr_1.5fr_1.3fr_1fr_1.2fr_1.2fr] bg-[#f7f8fc] px-8 py-4 text-xs uppercase text-gray-500">
               <span>PATIENT ID</span>
@@ -214,6 +196,7 @@ export default function PatientList() {
                     <p className="font-semibold text-gray-600">
                       {patient.name}
                     </p>
+
                     <p className="text-sm text-gray-400">
                       {patient.phone}
                     </p>
