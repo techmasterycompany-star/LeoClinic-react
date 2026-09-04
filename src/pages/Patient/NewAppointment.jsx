@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PatientLayout from "../../components/patient/PatientLayout";
+import PatientSidebar from "../../components/PatientDashboardSidebar";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+
 function ClinicIcon({ active }) {
   return (
     <svg
@@ -90,7 +92,11 @@ function NewAppointment() {
   ];
 
   return (
-  <PatientLayout>
+    <div className="flex h-screen w-full overflow-hidden bg-[#F8F9FC]">
+    <PatientSidebar />
+    <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
+      <AdminDrProfileNavbar />
+      <div className="flex-1 overflow-y-auto">
     <div className="min-h-screen ...">
       <div className="max-w-[1100px] mx-auto">
         <div className="flex items-center gap-4 mb-10">
@@ -180,10 +186,12 @@ function NewAppointment() {
               Continue
             </button>
           </div>
-        </div>
+                </div>
       </div>
     </div>
-  </PatientLayout>
+      </div>
+    </main>
+  </div>
   );
 }
 

@@ -61,9 +61,9 @@ function App() {
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/password-changed" element={<PasswordChanged />} />
 
-        {/* --- Patient Routes (Wrapped in PatientLayout) --- */}
+        {/* --- Patient Routes --- */}
         <Route element={<ProtectedRoute allowedRoles={["PATIENT"]} />}>
-          <Route path="/patient" element={<PatientLayout />}>
+          <Route path="/patient">
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<PatientOverview />} />
             <Route path="new-appointment" element={<NewAppointment />} />

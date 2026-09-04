@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-//import Sidebar from "../../components/AdminDashboardSidebar1";
-//import Navbar from "../../components/AdminDrProfileNavbar";
+import Sidebar from "../../components/PatientDashboardSidebar";
+import Navbar from "../../components/AdminDrProfileNavbar";
 
 import DrProfileCard from "../../assets/drProfile.png";
 import VisitInfoIcon from "../../assets/DetailsIcon.png";

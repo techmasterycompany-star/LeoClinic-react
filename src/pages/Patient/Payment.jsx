@@ -1,3 +1,6 @@
+import PatientSidebar from "../../components/PatientDashboardSidebar";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+
 const payments = [
   {
     id: 1,
@@ -30,7 +33,11 @@ const payments = [
 
 function Payment() {
   return (
-    <div className="p-6">
+    <div className="flex h-screen w-full overflow-hidden bg-[#F8F9FC]">
+      <PatientSidebar />
+      <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <AdminDrProfileNavbar />
+        <div className="flex-1 overflow-y-auto p-6">
       <h1 className="text-2xl font-semibold mb-6">Payments</h1>
 
       <div className="space-y-4">
@@ -68,7 +75,9 @@ function Payment() {
             </div>
           </div>
         ))}
-      </div>
+            </div>
+        </div>
+      </main>
     </div>
   );
 }

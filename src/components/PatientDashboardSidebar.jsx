@@ -17,8 +17,7 @@ import Logout from "../assets/SidebarIcons/logout.png";
 const NAV_ITEMS = [
   { label: "Overview", icon: Overview, path: "/overview" },
   { label: "Appointment", icon: Appointment, path: "/appointments" },
-  { label: "Patient List", icon: Doctor, path: "/doctors" },
-  { label: "Patient", icon: Patient, path: "/patients" },
+  { label: "Doctors", icon: Doctor, path: "/doctors" },
   { label: "Payment", icon: Payment, path: "/payments" },
   { label: "Messages", icon: Message, path: "/messages" },
 ];
