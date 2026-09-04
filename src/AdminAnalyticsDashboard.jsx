@@ -9,7 +9,6 @@ import AdminDrProfileSidebar from "./SideBar";
 import AdminDrProfileNavbar from "./NavBar"
 
 
-
 function AdminAnalyticsDashboard(){
     return(
        <>
@@ -26,10 +25,10 @@ function AdminAnalyticsDashboard(){
         >
           <AdminDrProfileSidebar />
         </aside>
-        <main className=" flex-1  hide-scrollbar  ml-6 mr-6">
+        <main className=" flex-1  hide-scrollbar  ml-6 mr-6 mb-12">
           <section className="header mb-6"><AdminDrProfileNavbar/></section>
-          <section className="mainContent mt-[-24px]">
-            <div className="statics w-full mb-6 flex gap-4 h-[180px]">
+          <section className="mainContent">
+            <div className="statics w-full mb-2 flex gap-4 h-[180px]">
               <StaticsOne />
               <StaticsTwo />
               <StaticsThree />

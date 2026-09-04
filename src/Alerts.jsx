@@ -2,7 +2,7 @@ import { CircleAlert, CircleCheck} from "lucide-react";
 
 export default function Alerts(){
     return(
-        <div className="box bg-white rounded-lg h-[255px] p-6 border-[#F0F1F5] border w-[67%]">
+        <div className="box bg-white rounded-lg h-[280px] p-6 border-[#F0F1F5] border w-[67%]">
             <h3 className='text-[#2D3039] text-[18px] font-bold mb-4'>Operational Alerts</h3>
             <div className="boxContent w-full">
                <div className="bg-[#FFF4E0] border border-[#FFB020] h-19 mb-4 flex items-center gap-5 rounded-lg p-2">

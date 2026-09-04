@@ -1,6 +1,6 @@
-export default function Resources(){
+   export default function Resources(){
     return(
-         <div className="resourcesBox  bg-white rounded-lg h-[255px] p-6 border-[#F0F1F5] border w-[33%]">
+         <div className="resourcesBox  bg-white rounded-lg h-[280px] p-6 border-[#F0F1F5] border w-[33%]">
             <h3 className='text-[#2D3039] text-[18px] font-bold mb-2'>Resource Allocation</h3>
             <div className="resourceContent">
             <div className="data mb-1">
