@@ -17,6 +17,10 @@ function AdminDrProfileNavbar({
   const getPageInfo = () => {
     const path = location.pathname;
 
+    // =========================
+    // ADMIN DASHBOARD
+    // =========================
+
     if (path === "/admin/overview") {
       return {
         title: "Overview",
@@ -66,9 +70,126 @@ function AdminDrProfileNavbar({
       };
     }
 
+    // =========================
+    // DOCTOR DASHBOARD
+    // =========================
+
+    if (path === "/doctor/overview") {
+      return {
+        title: "Overview",
+        subtitle: "Overview of your dashboard",
+      };
+    }
+
+    if (path === "/doctor/slot") {
+      return {
+        title: "Appointments",
+        subtitle: "View and manage your slots",
+      };
+    }
+
+    if (path === "/doctor/request") {
+      return {
+        title: "My Requests",
+        subtitle: "View and manage all requests",
+      };
+    }
+
+    if (path === "/doctor/schedule") {
+      return {
+        title: "Schedule",
+        subtitle: "Manage your availability",
+      };
+    }
+
+    if (path === "/doctor/patients") {
+      return {
+        title: "Patient List",
+        subtitle: "View and manage your patients",
+      };
+    }
+
+    if (path.startsWith("/doctor/patients/")) {
+      return {
+        title: "Patient",
+        subtitle: "View patient information",
+      };
+    }
+
+    if (path === "/doctor/patient-view") {
+      return {
+        title: "Patient",
+        subtitle: "View patient information",
+      };
+    }
+
+    if (path === "/doctor/messages") {
+      return {
+        title: "Messages",
+        subtitle: "Message your patients",
+      };
+    }
+
+    if (path === "/doctor/add-prescription") {
+      return {
+        title: "Add Prescription",
+        subtitle: "Create a new prescription",
+      };
+    }
+
+    // =========================
+    // PATIENT DASHBOARD
+    // =========================
+
+    if (path === "/patient/overview") {
+      return {
+        title: "Overview",
+        subtitle: "Welcome back",
+      };
+    }
+
+    if (path === "/patient/doctors") {
+      return {
+        title: "Find a Doctor",
+        subtitle: "Browse and book with a doctor",
+      };
+    }
+
+    if (path.startsWith("/patient/doctors/")) {
+      return {
+        title: "Doctor Profile",
+        subtitle: "View doctor information",
+      };
+    }
+
+    if (path === "/patient/appointments") {
+      return {
+        title: "Appointments",
+        subtitle: "View your appointments",
+      };
+    }
+
+    if (path === "/patient/messages") {
+      return {
+        title: "Messages",
+        subtitle: "Message your doctor",
+      };
+    }
+
+    if (path === "/patient/payment") {
+      return {
+        title: "Payment",
+        subtitle: "Manage your payments",
+      };
+    }
+
+    // =========================
+    // DEFAULT
+    // =========================
+
     return {
-      title: "Admin Dashboard",
-      subtitle: "Manage your dashboard",
+      title: "Dashboard",
+      subtitle: "",
     };
   };
 
@@ -376,5 +497,5 @@ function AdminDrProfileNavbar({
     </header>
   );
 }
-
 export default AdminDrProfileNavbar;
+

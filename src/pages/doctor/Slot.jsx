@@ -1,5 +1,6 @@
 import { useState } from "react";
-import DoctorLayout from "../../components/doctor/DoctorLayout";
+import DrDashboardSidebar from "../../components/DrDashboardSidebar";
+import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
 
 const dates = [
   { day: "Today", date: "", slots: "No slots available" },
@@ -22,37 +23,39 @@ function Slot() {
   const [selectedSlot, setSelectedSlot] = useState(2);
 
   return (
-    <DoctorLayout>
-      <div className="min-h-screen bg-white">
-        <div className="bg-[#F7F8FC] px-6 lg:px-8 py-7">
-          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
-            <div>
-              <h1 className="text-[30px] font-bold text-[#4C515D]">
-                Book New Appointment
-              </h1>
-              <p className="text-sm text-[#8C929E] mt-1">Pick a Slot</p>
-            </div>
-
-            <div className="flex items-center gap-5">
-              <div className="w-full xl:w-[330px] h-12 bg-white rounded-full border border-[#E3E5EA] flex items-center px-5">
-                <span className="text-xl text-[#A4AAB5]">⌕</span>
-                <span className="text-sm text-[#A4AAB5] ml-3">
-                  Search by name .
-                </span>
+    <div className="flex h-screen w-full overflow-hidden bg-[#F8F9FC]">
+      <DrDashboardSidebar />
+      <main className="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <AdminDrProfileNavbar />
+        <div className="flex-1 overflow-y-auto bg-white">
+          <div className="bg-[#F7F8FC] px-6 lg:px-8 py-7">
+            <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
+              <div>
+                <h1 className="text-[30px] font-bold text-[#4C515D]">
+                  Book New Appointment
+                </h1>
+                <p className="text-sm text-[#8C929E] mt-1">Pick a Slot</p>
               </div>
 
-              <button className="w-12 h-12 bg-white rounded-full shadow-sm text-xl text-[#777E89]">
-                ♧
-              </button>
-
-              <div className="h-12 px-5 rounded-full bg-white flex items-center gap-3 min-w-[180px]">
-                <div className="w-8 h-8 rounded-full bg-[#E5E5E5] flex items-center justify-center text-xs">
-                  S
+              <div className="flex items-center gap-5">
+                <div className="w-full xl:w-[330px] h-12 bg-white rounded-full border border-[#E3E5EA] flex items-center px-5">
+                  <span className="text-xl text-[#A4AAB5]">⌕</span>
+                  <span className="text-sm text-[#A4AAB5] ml-3">
+                    Search by name .
+                  </span>
                 </div>
-                <span className="text-sm text-[#858B96]">
-                  Sara Ibrahim
-                </span>
-                <span className="ml-auto text-[#8B919B]">⌄</span>
+
+                <button className="w-12 h-12 bg-white rounded-full shadow-sm text-xl text-[#777E89]">
+                  ♧
+                </button>
+
+                <div className="h-12 px-5 rounded-full bg-white flex items-center gap-3 min-w-[180px]">
+                  <div className="w-8 h-8 rounded-full bg-[#E5E5E5] flex items-center justify-center text-xs">
+                    S
+                  </div>
+                  <span className="text-sm text-[#858B96]">Sara Ibrahim</span>
+                  <span className="ml-auto text-[#8B919B]">⌄</span>
+                </div>
               </div>
             </div>
           </div>
@@ -109,17 +112,13 @@ function Slot() {
 
                   <div>
                     <p className="text-sm">Birthday</p>
-                    <p className="font-medium text-sm mt-2">
-                      Oct 12 ,1999
-                    </p>
+                    <p className="font-medium text-sm mt-2">Oct 12 ,1999</p>
                     <div className="h-px bg-white mt-3" />
                   </div>
 
                   <div>
                     <p className="text-sm">Number</p>
-                    <p className="font-medium text-sm mt-2">
-                      (0106) 6181852
-                    </p>
+                    <p className="font-medium text-sm mt-2">(0106) 6181852</p>
                     <div className="h-px bg-white mt-3" />
                   </div>
 
@@ -139,9 +138,7 @@ function Slot() {
 
                   <div>
                     <p className="text-sm">Registration Date</p>
-                    <p className="font-medium text-sm mt-2">
-                      Oct 12 ,1999
-                    </p>
+                    <p className="font-medium text-sm mt-2">Oct 12 ,1999</p>
                     <div className="h-px bg-white mt-3" />
                   </div>
                 </div>
@@ -200,9 +197,7 @@ function Slot() {
                     </p>
 
                     {date.date && (
-                      <p className="text-xs text-[#1026B8] mt-2">
-                        {date.date}
-                      </p>
+                      <p className="text-xs text-[#1026B8] mt-2">{date.date}</p>
                     )}
 
                     {date.slots && (
@@ -231,8 +226,8 @@ function Slot() {
                         index === 0 || index === 5
                           ? "bg-[#E7EAF9] border-[#E7EAF9] text-[#B8BDCE]"
                           : selectedSlot === index
-                          ? "bg-[#1026B8] border-[#1026B8] text-white"
-                          : "bg-white border-[#DCE0E7] text-[#6C727F]"
+                            ? "bg-[#1026B8] border-[#1026B8] text-white"
+                            : "bg-white border-[#DCE0E7] text-[#6C727F]"
                       }`}
                     >
                       {time}
@@ -253,8 +248,8 @@ function Slot() {
             </button>
           </div>
         </div>
-      </div>
-    </DoctorLayout>
+      </main>
+    </div>
   );
 }
 

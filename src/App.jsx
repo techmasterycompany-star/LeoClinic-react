@@ -5,7 +5,6 @@ import "./App.css";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 // Layout Components
-import DoctorLayout from "./components/doctor/DoctorLayout";
 import PatientLayout from "./components/patient/PatientLayout";
 
 // Auth Pages
@@ -79,9 +78,11 @@ function App() {
           </Route>
         </Route>
 
-        {/* --- Doctor Routes (Wrapped in DoctorLayout) --- */}
+        {/* --- Doctor Routes --- */}
         <Route element={<ProtectedRoute allowedRoles={["DOCTOR"]} />}>
-          <Route path="/doctor/overview" element={<DrOverview />} />
+          <Route path="/doctor">
+            <Route index element={<Navigate to="overview" replace />} />
+            <Route path="overview" element={<DrOverview />} />
             <Route path="slot" element={<Slot />} />
             <Route path="request" element={<Request />} />
             <Route path="schedule" element={<Schedule />} />
@@ -91,6 +92,7 @@ function App() {
             <Route path="messages" element={<Messages />} />
             <Route path="add-prescription" element={<AddPrescription />} />
           </Route>
+        </Route>
 
         {/* --- Admin Routes --- */}
         <Route element={<ProtectedRoute allowedRoles={["ADMIN"]} />}>

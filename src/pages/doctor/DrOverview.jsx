@@ -225,7 +225,6 @@ function AppointmentsSection() {
 
   return (
     <section>
-      <SectionHeader title="Appointments" description="View and manage all appointment bookings in the system" />
       <ToggleButtons
         active={activeTab}
         onChange={(tab) => {
