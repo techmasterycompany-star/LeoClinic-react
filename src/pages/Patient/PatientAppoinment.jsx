@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import Sidebar from "../../components/PatientDashboardSidebar.jsx";
-import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
+//import Sidebar from "../../components/PatientDashboardSidebar.jsx";
+//import AdminDrProfileNavbar from "../../components/AdminDrProfileNavbar";
 import profile from "../../assets/profilePic.png";
 
 const FILTERS = [
@@ -97,11 +97,6 @@ function AdminAppointment() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar />
-
-      <main className="flex-1 min-w-0 flex flex-col overflow-hidden bg-white">
-        <Navbar />
 
         <div className="flex-1 min-h-0 overflow-y-auto px-6 py-6">
           <div
@@ -826,8 +821,6 @@ function AdminAppointment() {
             </div>
           </div>
         </div>
-      </main>
-    </div>
   );
 }
 

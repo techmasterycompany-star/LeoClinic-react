@@ -15,16 +15,28 @@ function Login() {
 
   const navigate = useNavigate();
 
+  // Temporary mock login for frontend testing
   const MOCK_DOCTOR = {
-  email: "doctor@test.com",
-  password: "123456",
-  user: {
-    id: "mock-doctor-1",
-    name: "Dr. Ahmed Mohamed",
     email: "doctor@test.com",
-    role: "doctor",
-  },
-};
+    password: "123456",
+    user: {
+      id: "mock-doctor-1",
+      name: "Dr. Ahmed Mohamed",
+      email: "doctor@test.com",
+      role: "doctor",
+    },
+  };
+
+  const MOCK_PATIENT = {
+    email: "patient@test.com",
+    password: "123456Aa",
+    user: {
+      id: "mock-patient-1",
+      name: "John Doe",
+      email: "patient@test.com",
+      role: "patient",
+    },
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,35 +46,56 @@ function Login() {
       return;
     }
 
-    // Temporary mock login for testing Doctor Dashboard
-  if (
-    email === MOCK_DOCTOR.email &&
-    password === MOCK_DOCTOR.password
-  ) {
-    localStorage.setItem("token", "mock-doctor-token");
-    localStorage.setItem("userRole", "DOCTOR");
-    localStorage.setItem("user", JSON.stringify(MOCK_DOCTOR.user));
+    setError("");
 
-    if (remember) {
-      localStorage.setItem("rememberMe", "true");
-    } else {
-      localStorage.removeItem("rememberMe");
+    // =========================
+    // Mock Doctor Login
+    // =========================
+    if (email === MOCK_DOCTOR.email && password === MOCK_DOCTOR.password) {
+      localStorage.setItem("token", "mock-doctor-token");
+      localStorage.setItem("userRole", "DOCTOR");
+      localStorage.setItem("user", JSON.stringify(MOCK_DOCTOR.user));
+
+      if (remember) {
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.removeItem("rememberMe");
+      }
+
+      navigate("/doctor/overview");
+      return;
     }
 
-    navigate("/doctor/overview");
-    return;
-  }
+    // =========================
+    // Mock Patient Login
+    // =========================
+    if (email === MOCK_PATIENT.email && password === MOCK_PATIENT.password) {
+      localStorage.setItem("token", "mock-patient-token");
+      localStorage.setItem("userRole", "PATIENT");
+      localStorage.setItem("user", JSON.stringify(MOCK_PATIENT.user));
 
-  setError("");
-  setLoading(true);
+      if (remember) {
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.removeItem("rememberMe");
+      }
 
-  try {
-    const response = await loginUser({
-      email,
-      password,
-    });
+      navigate("/patient/overview");
+      return;
+    }
 
-      // Backend response:
+    // =========================
+    // Real Backend Login
+    // =========================
+    setLoading(true);
+
+    try {
+      const response = await loginUser({
+        email,
+        password,
+      });
+
+      // Expected backend response:
       // {
       //   success: true,
       //   data: {
@@ -84,8 +117,6 @@ function Login() {
       // Save authentication data
       localStorage.setItem("token", accessToken);
       localStorage.setItem("userRole", userRole);
-
-      // Optional: save user information for later use
       localStorage.setItem("user", JSON.stringify(user));
 
       // Remember device
@@ -95,7 +126,7 @@ function Login() {
         localStorage.removeItem("rememberMe");
       }
 
-      // Redirect according to the role returned by the backend
+      // Redirect according to user role
       switch (userRole) {
         case "ADMIN":
           navigate("/admin/overview");
@@ -118,7 +149,7 @@ function Login() {
       setError(
         err.response?.data?.message ||
           err.message ||
-          "Invalid credentials or network error."
+          "Invalid credentials or network error.",
       );
     } finally {
       setLoading(false);

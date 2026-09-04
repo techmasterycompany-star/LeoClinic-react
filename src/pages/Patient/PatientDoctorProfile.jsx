@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/AdminDashboardSidebar1";
-import Navbar from "../../components/AdminDrProfileNavbar";
-import DrProfileCard from "../../assets/drProfile.png";
+//import Sidebar from "../../components/AdminDashboardSidebar1";
+//import Navbar from "../../components/AdminDrProfileNavbar";
 
+import DrProfileCard from "../../assets/drProfile.png";
 import VisitInfoIcon from "../../assets/DetailsIcon.png";
 import ServicesIcon from "../../assets/DetailsIcon.png";
 import ReviewsIcon from "../../assets/DetailsIcon.png";
@@ -280,18 +280,13 @@ function DoctorProfile() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar />
-
-      <main className="flex-1 min-w-0 flex flex-col overflow-hidden bg-white">
-        <Navbar />
-
-        <div className="shrink-0 px-6 mt-8">
-          <div className="w-[124px] h-[24px] flex items-center gap-[5px] font-['IBM Plex Sans'] text-[12px] leading-[24px] text-[#4D5260]">
-            <span className="text-[#A7ABB5]">&lt;</span>
-            <span>Doctor Profile</span>
-          </div>
-        </div>
+    <div className="flex-1 min-h-0 overflow-y-auto px-6 pb-6">
+    <div className="shrink-0 px-0 mt-8">
+      <div className="w-[124px] h-[24px] flex items-center gap-[5px] font-['IBM Plex Sans'] text-[12px] leading-[24px] text-[#4D5260]">
+        <span className="text-[#A7ABB5]">&lt;</span>
+        <span>Doctor Profile</span>
+      </div>
+    </div>
 
         <div className="flex-1 min-h-0 overflow-y-auto px-6 pb-6">
           <div className="w-full flex flex-col gap-6 mt-6">
@@ -539,7 +534,6 @@ function DoctorProfile() {
             </div>
           </div>
         </div>
-      </main>
     </div>
   );
 }
